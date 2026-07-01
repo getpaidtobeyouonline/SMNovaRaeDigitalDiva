@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1000 Mini Web Apps That Print Money | GetPaidToBeYouOnline</title>
+<meta name="description" content="1000 done-for-you interactive mini web apps with full Master Resell Rights. Browse, use, and sell every app. Keep 100% of every sale forever.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-dim: rgba(201,168,76,0.12);
+    --black: #0D0D0D;
+    --dark: #141414;
+    --card: #1E1E1E;
+    --card2: #252525;
+    --border: rgba(201,168,76,0.22);
+    --border-soft: rgba(255,255,255,0.07);
+    --text: #F0EBE0;
+    --muted: #777777;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--black);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--dark);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+  .topbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--text);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .topbar-brand span { color: var(--gold); }
+  .search-wrap {
+    flex: 1;
+    max-width: 420px;
+    position: relative;
+  }
+  .search-icon {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 15px;
+    pointer-events: none;
+  }
+  .search-wrap input {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 10px 14px 10px 38px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-wrap input:focus { border-color: var(--border); }
+  .search-wrap input::placeholder { color: var(--muted); }
+  .topbar-count {
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .topbar-count span { color: var(--gold); font-weight: 600; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #111 0%, var(--black) 60%);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    padding: 44px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold-dim);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 6vw, 48px);
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    color: var(--gold);
+    font-style: normal;
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .hero-stat {
+    flex: 1;
+    padding: 16px 12px;
+    text-align: center;
+    border-right: 1px solid var(--border-soft);
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-stat-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-section {
+    padding: 16px 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .filter-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .pill {
+    white-space: nowrap;
+    flex-shrink: 0;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    color: var(--muted);
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .pill:hover { border-color: var(--border); color: var(--text); }
+  .pill.active {
+    background: var(--gold-dim);
+    border-color: var(--border);
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .content { padding: 24px 20px 48px; }
+
+  .category-section { margin-bottom: 40px; }
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .cat-icon {
+    width: 34px; height: 34px;
+    background: var(--gold-dim);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .cat-info { flex: 1; }
+  .cat-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .cat-desc {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .cat-count {
+    font-size: 11px;
+    color: var(--gold);
+    background: var(--gold-dim);
+    border: 1px solid var(--border);
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  /* ── APP GRID ── */
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+  }
+  .app-card {
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 16px 14px 13px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .app-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .app-card:hover {
+    border-color: rgba(201,168,76,0.3);
+    background: var(--card2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .app-card:hover::after { transform: scaleX(1); }
+  .app-card-icon {
+    font-size: 22px;
+    line-height: 1;
+  }
+  .app-card-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    flex: 1;
+  }
+  .app-card-open {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .app-card-open svg {
+    width: 10px; height: 10px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ── NO RESULTS ── */
+  .no-results {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--muted);
+  }
+  .no-results-icon { font-size: 48px; margin-bottom: 16px; }
+  .no-results h3 { font-size: 18px; color: var(--text); margin-bottom: 8px; }
+  .no-results p { font-size: 14px; font-weight: 300; }
+
+  /* ── MORE COMING ── */
+  .more-coming {
+    background: var(--card);
+    border: 1px dashed var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 32px;
+  }
+  .more-coming h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .more-coming h3 span { color: var(--gold); }
+  .more-coming p {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .progress-wrap { margin-top: 16px; }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .progress-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 2px;
+    width: 0;
+    transition: width 1s ease;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 28px 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 12px;
+    color: rgba(119,119,119,0.5);
+    line-height: 1.8;
+  }
+  .footer a { color: var(--gold); text-decoration: none; }
+  .footer strong { color: var(--muted); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 520px) {
+    .topbar { flex-wrap: wrap; gap: 10px; }
+    .search-wrap { order: 3; width: 100%; max-width: 100%; }
+    .topbar-count { display: none; }
+    .hero { padding: 32px 16px 28px; }
+    .hero-stats { flex-direction: row; }
+    .app-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .content { padding: 20px 16px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">1000 <span>Web Apps</span></div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search 1000 apps..." oninput="filterApps()" autocomplete="off">
+  </div>
+  <div class="topbar-count"><span id="visibleCount">1000</span> apps available</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">✦ Your App Vault</div>
+  <h1>1000 Mini Web <em>Apps</em><br>That Print Money</h1>
+  <p class="hero-sub">Done-for-you interactive tools with full Master Resell Rights. Browse any app, sell it on any platform, keep 100% of every sale — forever.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-val">1000</div>
+      <div class="hero-stat-label">Total Apps</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">20</div>
+      <div class="hero-stat-label">Categories</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">100%</div>
+      <div class="hero-stat-label">Yours Forever</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-section">
+  <div class="filter-label">Browse by category</div>
+  <div class="filter-bar" id="filterBar">
+    <div class="pill active" onclick="filterCat('all', this)">✦ All Apps</div>
+    <div class="pill" onclick="filterCat('Business & Entrepreneurship', this)">💼 Business</div>
+    <div class="pill" onclick="filterCat('Digital Products & Passive Income', this)">📦 Digital Products</div>
+    <div class="pill" onclick="filterCat('Productivity', this)">⚡ Productivity</div>
+    <div class="pill" onclick="filterCat('Content Creation', this)">✏️ Content Creation</div>
+    <div class="pill" onclick="filterCat('AI Tools & Prompts', this)">🤖 AI Tools</div>
+    <div class="pill" onclick="filterCat('Social Media Growth', this)">📱 Social Media</div>
+    <div class="pill" onclick="filterCat('Email Marketing', this)">📧 Email</div>
+    <div class="pill" onclick="filterCat('Mindset & Personal Development', this)">🧠 Mindset</div>
+    <div class="pill" onclick="filterCat('Finance & Money', this)">💰 Finance</div>
+    <div class="pill" onclick="filterCat('Health & Wellness', this)">💪 Health</div>
+    <div class="pill" onclick="filterCat('Relationships & Family', this)">❤️ Relationships</div>
+    <div class="pill" onclick="filterCat('Education & Learning', this)">📚 Education</div>
+    <div class="pill" onclick="filterCat('Travel & Lifestyle', this)">✈️ Travel</div>
+    <div class="pill" onclick="filterCat('Food & Nutrition', this)">🥗 Food</div>
+    <div class="pill" onclick="filterCat('Home & Organisation', this)">🏠 Home</div>
+    <div class="pill" onclick="filterCat('Career & Job Search', this)">💼 Career</div>
+    <div class="pill" onclick="filterCat('Coaching & Service Providers', this)">🎯 Coaching</div>
+    <div class="pill" onclick="filterCat('Spirituality & Mindfulness', this)">🌿 Spirit</div>
+    <div class="pill" onclick="filterCat('Kids & Parenting', this)">👨‍👩‍👧 Kids</div>
+    <div class="pill" onclick="filterCat('Creative Arts & Hobbies', this)">🎨 Creative</div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content" id="content"></div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>1000 Mini Web Apps That Print Money</strong><br>
+  Powered by <a href="https://getpaidtobeyou.online" target="_blank">GetPaidToBeYouOnline</a>
+  &nbsp;·&nbsp; @girlbossgrowth<br>
+  Your MRR licence is personal. Please do not share this link with non-buyers.<br><br>
+  <a href="https://getpaidtobeyouonline.github.io/1000miniwebappsthatprintmoney/mrr-licence.html" target="_blank" style="color:var(--gold);text-decoration:none;font-size:12px;">📄 View Master Resell Rights Licence Agreement</a>
+</div>
+
+<script>
+// ── APP DATA ──
+const CATEGORIES = [
+  {
+    id: 'Business & Entrepreneurship',
+    icon: '💼',
+    desc: '50 tools for entrepreneurs, coaches and online business owners',
+    apps: [
+      { name: '200+ Ways to Promote Your Digital Product (Even With 0 Audience)', url: 'https://200waystopromotedigitalproduct.netlify.app/', icon: '📣' },
+      { name: 'Revenue Goal Calculator', url: 'revenue-goal-calculator.html', icon: '💰' },
+      { name: 'Monthly Income Tracker', url: 'monthly-income-tracker.html', icon: '📊' },
+      { name: 'Launch Countdown Timer', url: 'launch-countdown-timer.html', icon: '⏱️' },
+      { name: 'Client Onboarding Checklist', url: 'client-onboarding-checklist.html', icon: '✅' },
+      { name: 'Proposal Value Calculator', url: 'proposal-value-calculator.html', icon: '📋' },
+      { name: 'Business Idea Validator', url: 'business-idea-validator.html', icon: '💡' },
+      { name: 'Niche Clarity Tool', url: 'niche-clarity-tool.html', icon: '🎯' },
+      { name: 'Offer Pricing Calculator', url: 'offer-pricing-calculator.html', icon: '💲' },
+      { name: 'Sales Conversion Tracker', url: 'sales-conversion-tracker.html', icon: '📈' },
+      { name: 'Lead Pipeline Manager', url: 'lead-pipeline-manager.html', icon: '🔗' },
+      { name: 'Weekly Revenue Dashboard', url: 'weekly-revenue-dashboard.html', icon: '📊' },
+      { name: 'Business Model Checker', url: 'business-model-checker.html', icon: '🔍' },
+      { name: 'Competitor Analysis Tool', url: 'competitor-analysis-tool.html', icon: '⚔️' },
+      { name: 'Brand Voice Generator', url: 'brand-voice-generator.html', icon: '🎙️' },
+      { name: 'Mission Statement Builder', url: 'mission-statement-builder.html', icon: '🏛️' },
+      { name: 'Vision Board Prompt Tool', url: 'vision-board-prompt-generator.html', icon: '✨' },
+      { name: '90 Day Business Planner', url: '90-day-business-planner.html', icon: '📅' },
+      { name: 'Cash Flow Calculator', url: 'cash-flow-calculator.html', icon: '💸' },
+      { name: 'Profit Margin Calculator', url: 'profit-margin-calculator.html', icon: '📉' },
+      { name: 'Business Expense Tracker', url: 'business-expense-tracker.html', icon: '🧾' },
+      { name: 'Invoice Generator', url: 'invoice-generator.html', icon: '📄' },
+      { name: 'Client Satisfaction Tracker', url: 'client-satisfaction-tracker.html', icon: '⭐' },
+      { name: 'Referral Tracker', url: 'referral-tracker.html', icon: '🤝' },
+      { name: 'Business Goal Setter', url: 'business-goal-setter.html', icon: '🎯' },
+      { name: 'Launch Checklist Tool', url: 'launch-checklist-tool.html', icon: '☑️' },
+      { name: 'Product Idea Generator', url: 'product-idea-generator.html', icon: '💡' },
+      { name: 'Market Research Tool', url: 'market-research-tool.html', icon: '🔬' },
+      { name: 'Customer Avatar Builder', url: 'customer-avatar-builder.html', icon: '🤖' },
+      { name: 'Business Name Generator', url: 'business-name-generator.html', icon: '✏️' },
+      { name: 'Tagline Creator', url: 'tagline-creator.html', icon: '💬' },
+      { name: 'Elevator Pitch Builder', url: 'elevator-pitch-builder.html', icon: '🏢' },
+      { name: 'Business Health Checker', url: 'business-health-checker.html', icon: '❤️' },
+      { name: 'KPI Dashboard', url: 'kpi-dashboard.html', icon: '📊' },
+      { name: 'Quarterly Business Review', url: 'quarterly-business-review.html', icon: '📆' },
+      { name: 'Annual Revenue Planner', url: 'annual-revenue-planner.html', icon: '📅' },
+      { name: 'Side Hustle Income Tracker', url: 'side-hustle-income-tracker.html', icon: '💰' },
+      { name: 'Freelance Rate Calculator', url: 'freelance-rate-calculator.html', icon: '🧮' },
+      { name: 'Project Scope Estimator', url: 'project-scope-estimator.html', icon: '📐' },
+      { name: 'Client Budget Qualifier', url: 'client-budget-qualifier.html', icon: '💳' },
+      { name: 'Discovery Call Prep Tool', url: 'discovery-call-prep-tool.html', icon: '📞' },
+      { name: 'Proposal Win Rate Tracker', url: 'proposal-win-rate-tracker.html', icon: '🏆' },
+      { name: 'Business Pivot Planner', url: 'business-pivot-planner.html', icon: '🔄' },
+      { name: 'Minimum Viable Product Planner', url: 'mvp-planner.html', icon: '⚡' },
+      { name: 'Beta Launch Tracker', url: 'beta-launch-tracker.html', icon: '🧪' },
+      { name: 'Testimonial Request Generator', url: 'testimonial-request-generator.html', icon: '⭐' },
+      { name: 'Customer Lifetime Value Calculator', url: 'customer-lifetime-value-calculator.html', icon: '♾️' },
+      { name: 'Email List Growth Tracker', url: 'email-list-growth-tracker.html', icon: '📧' },
+      { name: 'Community Growth Dashboard', url: 'community-growth-dashboard.html', icon: '👥' },
+      { name: 'Business Exit Readiness Checker', url: 'business-exit-readiness-checker.html', icon: '🚪' },
+    ]
+  },
+  {
+    id: 'Digital Products & Passive Income',
+    icon: '📦',
+    desc: '50 tools for digital product creators, course builders, and passive income entrepreneurs',
+    apps: [
+      { name: 'Digital Product Idea Generator', url: 'digital-product-idea-generator.html', icon: '💡' },
+      { name: 'Product Pricing Sweet Spot Calculator', url: 'product-pricing-sweet-spot.html', icon: '💲' },
+      { name: 'Passive Income Goal Tracker', url: 'passive-income-goal-tracker.html', icon: '📈' },
+      { name: 'Beacons Store Optimisation Checklist', url: 'beacons-store-optimisation-checklist.html', icon: '🪄' },
+      { name: 'Product Launch Countdown', url: 'product-launch-countdown.html', icon: '⏱️' },
+      { name: 'Sales Page Conversion Checker', url: 'sales-page-conversion-checker.html', icon: '📋' },
+      { name: 'Digital Product Profit Calculator', url: 'digital-product-profit-calculator.html', icon: '💰' },
+      { name: 'Bundle Builder Tool', url: 'bundle-builder-tool.html', icon: '📦' },
+      { name: 'Product Suite Planner', url: 'product-suite-planner.html', icon: '🗂️' },
+      { name: 'Affiliate Income Tracker', url: 'affiliate-income-tracker.html', icon: '🔗' },
+      { name: 'MRR Revenue Calculator', url: 'mrr-revenue-calculator.html', icon: '🔁' },
+      { name: 'Product Validation Checklist', url: 'product-validation-checklist.html', icon: '✅' },
+      { name: 'Niche Product Finder', url: 'niche-product-finder.html', icon: '🔍' },
+      { name: 'Digital Product Name Generator', url: 'digital-product-name-generator.html', icon: '✨' },
+      { name: 'Cover Image Brief Generator', url: 'cover-image-brief-generator.html', icon: '🖼️' },
+      { name: 'Product Description Builder', url: 'product-description-builder.html', icon: '📝' },
+      { name: 'Upsell Sequence Planner', url: 'upsell-sequence-planner.html', icon: '⬆️' },
+      { name: 'Order Bump Revenue Calculator', url: 'order-bump-revenue-calculator.html', icon: '🛒' },
+      { name: 'Launch Revenue Projector', url: 'launch-revenue-projector.html', icon: '🚀' },
+      { name: 'Email List Monetisation Calculator', url: 'email-list-monetisation-calculator.html', icon: '📧' },
+      { name: 'Digital Product Roadmap Builder', url: 'digital-product-roadmap-builder.html', icon: '🗺️' },
+      { name: 'Course Outline Generator', url: 'course-outline-generator.html', icon: '📚' },
+      { name: 'Ebook Chapter Planner', url: 'ebook-chapter-planner.html', icon: '📖' },
+      { name: 'Template Pack Builder', url: 'template-pack-builder.html', icon: '🗃️' },
+      { name: 'Swipe File Organiser', url: 'swipe-file-organiser.html', icon: '📁' },
+      { name: 'Prompt Pack Creator', url: 'prompt-pack-creator.html', icon: '🤖' },
+      { name: 'Workbook Section Planner', url: 'workbook-section-planner.html', icon: '📓' },
+      { name: 'Checklist Builder Tool', url: 'checklist-builder-tool.html', icon: '☑️' },
+      { name: 'Mini Course Planner', url: 'mini-course-planner.html', icon: '🎓' },
+      { name: 'Masterclass Outline Tool', url: 'masterclass-outline-tool.html', icon: '🎯' },
+      { name: 'Workshop Agenda Builder', url: 'workshop-agenda-builder.html', icon: '🗓️' },
+      { name: 'Webinar Script Planner', url: 'webinar-script-planner.html', icon: '🎙️' },
+      { name: 'Challenge Design Tool', url: 'challenge-design-tool.html', icon: '🏆' },
+      { name: 'Membership Tier Planner', url: 'membership-tier-planner.html', icon: '👑' },
+      { name: 'Community Monetisation Calculator', url: 'community-monetisation-calculator.html', icon: '🏘️' },
+      { name: 'Content to Product Converter', url: 'content-to-product-converter.html', icon: '💫' },
+      { name: 'Repurposing Planner', url: 'repurposing-planner.html', icon: '♻️' },
+      { name: 'Product Feedback Collector', url: 'product-feedback-collector.html', icon: '💬' },
+      { name: 'Student Success Tracker', url: 'student-success-tracker.html', icon: '🏫' },
+      { name: 'Testimonial Generator', url: 'testimonial-generator.html', icon: '⭐' },
+      { name: 'Social Proof Dashboard', url: 'social-proof-dashboard.html', icon: '🌟' },
+      { name: 'Launch Debrief Tool', url: 'launch-debrief-tool.html', icon: '🔎' },
+      { name: 'Revenue Per Product Tracker', url: 'revenue-per-product-tracker.html', icon: '💹' },
+      { name: 'Best Seller Identifier', url: 'best-seller-identifier.html', icon: '🏅' },
+      { name: 'Product Retirement Planner', url: 'product-retirement-planner.html', icon: '🌅' },
+      { name: 'Seasonal Launch Calendar', url: 'seasonal-launch-calendar.html', icon: '📅' },
+      { name: 'Flash Sale Calculator', url: 'flash-sale-calculator.html', icon: '⚡' },
+      { name: 'Bundle Discount Calculator', url: 'bundle-discount-calculator.html', icon: '🏷️' },
+      { name: 'Affiliate Programme Planner', url: 'affiliate-programme-planner.html', icon: '🤝' },
+      { name: 'Digital Product Empire Roadmap', url: 'digital-product-empire-roadmap.html', icon: '🏛️' },
+    ]
+  },
+  {
+    id: 'Productivity',
+    icon: '⚡',
+    desc: '50 tools for focus, time management, habits and deep work',
+    apps: [
+      { name: 'Daily Task Prioritiser', url: 'daily-task-prioritiser.html', icon: '📋' },
+      { name: 'Focus Session Timer', url: 'focus-session-timer.html', icon: '⏱️' },
+      { name: 'Weekly Goal Tracker', url: 'weekly-goal-tracker.html', icon: '🎯' },
+      { name: 'Morning Routine Builder', url: 'morning-routine-builder.html', icon: '☀️' },
+      { name: 'Evening Wind Down Planner', url: 'evening-wind-down-planner.html', icon: '🌙' },
+      { name: 'Deep Work Session Tracker', url: 'deep-work-session-tracker.html', icon: '🧠' },
+      { name: 'Distraction Log Tool', url: 'distraction-log-tool.html', icon: '🚫' },
+      { name: 'Energy Level Tracker', url: 'energy-level-tracker.html', icon: '⚡' },
+      { name: 'Daily Intention Setter', url: 'daily-intention-setter.html', icon: '🌅' },
+      { name: 'Time Block Planner', url: 'time-block-planner.html', icon: '🗓️' },
+      { name: 'Habit Streak Counter', url: 'habit-streak-counter.html', icon: '🔥' },
+      { name: 'Weekly Review Generator', url: 'weekly-review-generator.html', icon: '📊' },
+      { name: 'Monthly Progress Tracker', url: 'monthly-progress-tracker.html', icon: '📈' },
+      { name: 'Project Milestone Tracker', url: 'project-milestone-tracker.html', icon: '🏁' },
+      { name: 'Daily Wins Journal', url: 'daily-wins-journal.html', icon: '✨' },
+      { name: 'Brain Dump Tool', url: 'brain-dump-tool.html', icon: '💭' },
+      { name: 'Decision Making Matrix', url: 'decision-making-matrix.html', icon: '⚖️' },
+      { name: 'Priority Score Calculator', url: 'priority-score-calculator.html', icon: '🏅' },
+      { name: 'Task Batch Organiser', url: 'task-batch-organiser.html', icon: '📦' },
+      { name: 'Deadline Countdown Timer', url: 'deadline-countdown-timer.html', icon: '⏰' },
+      { name: 'Meeting Prep Checklist', url: 'meeting-prep-checklist.html', icon: '📋' },
+      { name: 'End Of Day Review Tool', url: 'end-of-day-review-tool.html', icon: '🌆' },
+      { name: 'Weekly Planning Dashboard', url: 'weekly-planning-dashboard.html', icon: '📅' },
+      { name: 'Quarterly Goal Setter', url: 'quarterly-goal-setter.html', icon: '📆' },
+      { name: 'Annual Review Generator', url: 'annual-review-generator.html', icon: '🗂️' },
+      { name: 'Procrastination Buster Tool', url: 'procrastination-buster-tool.html', icon: '🚀' },
+      { name: 'Focus Music Selector', url: 'focus-music-selector.html', icon: '🎵' },
+      { name: 'Pomodoro Session Planner', url: 'pomodoro-session-planner.html', icon: '🍅' },
+      { name: 'Daily Schedule Builder', url: 'daily-schedule-builder.html', icon: '📅' },
+      { name: 'Time Audit Tracker', url: 'time-audit-tracker.html', icon: '⏱️' },
+      { name: 'Productivity Score Calculator', url: 'productivity-score-calculator.html', icon: '💯' },
+      { name: 'Overwhelm Reset Tool', url: 'overwhelm-reset-tool.html', icon: '😌' },
+      { name: 'Next Action Identifier', url: 'next-action-identifier.html', icon: '➡️' },
+      { name: 'Context Switcher Helper', url: 'context-switcher-helper.html', icon: '🔀' },
+      { name: 'Single Tasking Timer', url: 'single-tasking-timer.html', icon: '⏳' },
+      { name: 'Weekly Capacity Planner', url: 'weekly-capacity-planner.html', icon: '📊' },
+      { name: 'Energy Management Tracker', url: 'energy-management-tracker.html', icon: '🔋' },
+      { name: 'Mindful Break Timer', url: 'mindful-break-timer.html', icon: '🧘' },
+      { name: 'Daily Shutdown Ritual', url: 'daily-shutdown-ritual.html', icon: '🔒' },
+      { name: 'Morning Pages Prompt Generator', url: 'morning-pages-prompt-generator.html', icon: '📝' },
+      { name: 'Inbox Zero Tracker', url: 'inbox-zero-tracker.html', icon: '📬' },
+      { name: 'Digital Declutter Checklist', url: 'digital-declutter-checklist.html', icon: '🗑️' },
+      { name: 'Focus Environment Checklist', url: 'focus-environment-checklist.html', icon: '✅' },
+      { name: 'Deep Work Score Calculator', url: 'deep-work-score-calculator.html', icon: '🧠' },
+      { name: 'Accountability Check In Tool', url: 'accountability-check-in-tool.html', icon: '🤝' },
+      { name: 'Progress vs Goals Tracker', url: 'progress-vs-goals-tracker.html', icon: '📈' },
+      { name: 'Work Life Balance Checker', url: 'work-life-balance-checker.html', icon: '⚖️' },
+      { name: 'Boundary Setting Planner', url: 'boundary-setting-planner.html', icon: '🛡️' },
+      { name: 'No List Tracker', url: 'no-list-tracker.html', icon: '🚫' },
+      { name: 'Daily Non-Negotiables Planner', url: 'daily-non-negotiables-planner.html', icon: '💪' },
+    ]
+  },
+  {
+    id: 'Content Creation',
+    icon: '✏️',
+    desc: '50 tools for creators, writers, and digital sellers to plan, write, and scale their content',
+    apps: [
+      { name: 'Content Pillar Generator', url: 'content-pillar-generator.html', icon: '🏛️' },
+      { name: '30 Day Post Idea Creator', url: '30-day-post-idea-creator.html', icon: '📅' },
+      { name: 'Caption Formula Tool', url: 'caption-formula-tool.html', icon: '✍️' },
+      { name: 'Hook Generator', url: 'hook-generator.html', icon: '🪝' },
+      { name: 'Carousel Slide Planner', url: 'carousel-slide-planner.html', icon: '🎠' },
+      { name: 'Threads Post Builder', url: 'threads-post-builder.html', icon: '🧵' },
+      { name: 'Instagram Bio Optimiser', url: 'instagram-bio-optimiser.html', icon: '📸' },
+      { name: 'Content Calendar Builder', url: 'content-calendar-builder.html', icon: '🗓️' },
+      { name: 'Post Repurposing Planner', url: 'post-repurposing-planner.html', icon: '♻️' },
+      { name: 'Hashtag Strategy Tool', url: 'hashtag-strategy-tool.html', icon: '#️⃣' },
+      { name: 'Content Batch Planner', url: 'content-batch-planner.html', icon: '📦' },
+      { name: 'Viral Post Analyser', url: 'viral-post-analyser.html', icon: '🔥' },
+      { name: 'Story Script Generator', url: 'story-script-generator.html', icon: '📖' },
+      { name: 'Reel Hook Creator', url: 'reel-hook-creator.html', icon: '🎬' },
+      { name: 'YouTube Title Generator', url: 'youtube-title-generator.html', icon: '🎥' },
+      { name: 'Blog Post Outline Builder', url: 'blog-post-outline-builder.html', icon: '✏️' },
+      { name: 'Newsletter Subject Line Tester', url: 'newsletter-subject-line-tester.html', icon: '📧' },
+      { name: 'Email Body Template Tool', url: 'email-body-template-tool.html', icon: '💌' },
+      { name: 'CTA Generator', url: 'cta-generator.html', icon: '👉' },
+      { name: 'Content Audit Tool', url: 'content-audit-tool.html', icon: '🔍' },
+      { name: 'Engagement Rate Calculator', url: 'engagement-rate-calculator.html', icon: '💯' },
+      { name: 'Best Time To Post Tool', url: 'best-time-to-post-tool.html', icon: '⏰' },
+      { name: 'Content Theme Generator', url: 'content-theme-generator.html', icon: '🎨' },
+      { name: 'Brand Voice Checker', url: 'brand-voice-checker.html', icon: '🗣️' },
+      { name: 'Storytelling Framework Tool', url: 'storytelling-framework-tool.html', icon: '📚' },
+      { name: 'Educational Post Planner', url: 'educational-post-planner.html', icon: '🎓' },
+      { name: 'Behind The Scenes Post Ideas', url: 'behind-the-scenes-post-ideas.html', icon: '🎭' },
+      { name: 'Personal Story Prompt Generator', url: 'personal-story-prompt-generator.html', icon: '💭' },
+      { name: 'Controversial Opinion Post Builder', url: 'controversial-opinion-post-builder.html', icon: '🌶️' },
+      { name: 'Community Question Generator', url: 'community-question-generator.html', icon: '❓' },
+      { name: 'Poll Idea Creator', url: 'poll-idea-creator.html', icon: '📊' },
+      { name: 'Giveaway Planning Tool', url: 'giveaway-planning-tool.html', icon: '🎁' },
+      { name: 'Collaboration Pitch Builder', url: 'collaboration-pitch-builder.html', icon: '🤝' },
+      { name: 'Guest Post Planner', url: 'guest-post-planner.html', icon: '✉️' },
+      { name: 'Podcast Episode Outline', url: 'podcast-episode-outline.html', icon: '🎙️' },
+      { name: 'Live Stream Script Builder', url: 'live-stream-script-builder.html', icon: '📺' },
+      { name: 'Content Series Planner', url: 'content-series-planner.html', icon: '📑' },
+      { name: 'Seasonal Content Calendar', url: 'seasonal-content-calendar.html', icon: '🍂' },
+      { name: 'Product Launch Content Plan', url: 'product-launch-content-plan.html', icon: '🚀' },
+      { name: 'Evergreen Content Identifier', url: 'evergreen-content-identifier.html', icon: '🌲' },
+      { name: 'Content Performance Tracker', url: 'content-performance-tracker.html', icon: '📈' },
+      { name: 'Follower Growth Calculator', url: 'follower-growth-calculator.html', icon: '👥' },
+      { name: 'Profile Optimisation Checklist', url: 'profile-optimisation-checklist.html', icon: '✅' },
+      { name: 'DM Script Generator', url: 'dm-script-generator.html', icon: '📩' },
+      { name: 'Comment Response Templates', url: 'comment-response-templates.html', icon: '💬' },
+      { name: 'Social Proof Post Builder', url: 'social-proof-post-builder.html', icon: '⭐' },
+      { name: 'Milestone Celebration Post Tool', url: 'milestone-celebration-post-tool.html', icon: '🏆' },
+      { name: 'Content Recycling Planner', url: 'content-recycling-planner.html', icon: '🔄' },
+      { name: 'Multi Platform Content Adaptor', url: 'multi-platform-content-adaptor.html', icon: '🔀' },
+      { name: 'Content ROI Calculator', url: 'content-roi-calculator.html', icon: '💵' },
+    ]
+  },
+  {
+    id: 'AI Tools & Prompts',
+    icon: '🤖',
+    desc: '50 tools to build, test, sell and profit with AI prompts and Claude workflows',
+    apps: [
+      { name: 'Claude Prompt Builder', url: 'claude-prompt-builder.html', icon: '🛠️' },
+      { name: 'ChatGPT vs Claude Comparator', url: 'chatgpt-vs-claude-comparator.html', icon: '⚖️' },
+      { name: 'AI Prompt Library Organiser', url: 'ai-prompt-library-organiser.html', icon: '📚' },
+      { name: 'Prompt Refinement Tool', url: 'prompt-refinement-tool.html', icon: '✨' },
+      { name: 'AI Output Checker', url: 'ai-output-checker.html', icon: '🔍' },
+      { name: 'Advanced Prompt Pack Creator', url: 'advanced-prompt-pack-creator.html', icon: '📦' },
+      { name: 'AI Workflow Builder', url: 'ai-workflow-builder.html', icon: '🔗' },
+      { name: 'Claude Project Planner', url: 'claude-project-planner.html', icon: '🗂️' },
+      { name: 'AI Tool Selector', url: 'ai-tool-selector.html', icon: '🎯' },
+      { name: 'Prompt Testing Dashboard', url: 'prompt-testing-dashboard.html', icon: '🧪' },
+      { name: 'AI Income Method Selector', url: 'ai-income-method-selector.html', icon: '💸' },
+      { name: 'AI Business Idea Generator', url: 'ai-business-idea-generator.html', icon: '💡' },
+      { name: 'Prompt Monetisation Planner', url: 'prompt-monetisation-planner.html', icon: '💰' },
+      { name: 'AI Skill Audit Tool', url: 'ai-skill-audit-tool.html', icon: '📋' },
+      { name: 'Claude Conversation Starter', url: 'claude-conversation-starter.html', icon: '💬' },
+      { name: 'AI Product Builder Brief', url: 'ai-product-builder-brief.html', icon: '📝' },
+      { name: 'Prompt Engineering Checklist', url: 'prompt-engineering-checklist.html', icon: '✅' },
+      { name: 'AI Tool Stack Planner', url: 'ai-tool-stack-planner.html', icon: '🧱' },
+      { name: 'AI Content Calendar', url: 'ai-content-calendar.html', icon: '🗓️' },
+      { name: 'Prompt Swipe File Builder', url: 'prompt-swipe-file-builder.html', icon: '📁' },
+      { name: 'AI Writing Style Guide', url: 'ai-writing-style-guide.html', icon: '🖊️' },
+      { name: 'Claude App Brief Generator', url: 'claude-app-brief-generator.html', icon: '📄' },
+      { name: 'AI Automation Planner', url: 'ai-automation-planner.html', icon: '⚙️' },
+      { name: 'Prompt Results Tracker', url: 'prompt-results-tracker.html', icon: '📊' },
+      { name: 'AI Side Hustle Calculator', url: 'ai-side-hustle-calculator.html', icon: '🧮' },
+      { name: 'Claude Output Formatter', url: 'claude-output-formatter.html', icon: '🧹' },
+      { name: 'AI Research Assistant Brief', url: 'ai-research-assistant-brief.html', icon: '🔬' },
+      { name: 'Prompt Marketplace Planner', url: 'prompt-marketplace-planner.html', icon: '🏪' },
+      { name: 'AI Niche Finder', url: 'ai-niche-finder.html', icon: '🧭' },
+      { name: 'Claude Mini App Brief Tool', url: 'claude-mini-app-brief-tool.html', icon: '⚡' },
+      { name: 'AI Income Diversifier', url: 'ai-income-diversifier.html', icon: '🌐' },
+      { name: 'Prompt Pack Pricing Calculator', url: 'prompt-pack-pricing-calculator.html', icon: '💲' },
+      { name: 'AI Tool ROI Calculator', url: 'ai-tool-roi-calculator.html', icon: '📈' },
+      { name: 'Claude Prompt Tester', url: 'claude-prompt-tester.html', icon: '🔧' },
+      { name: 'AI Business Audit Tool', url: 'ai-business-audit-tool.html', icon: '🩺' },
+      { name: 'Prompt Library Builder', url: 'prompt-library-builder.html', icon: '🗄️' },
+      { name: 'AI Content Repurposer', url: 'ai-content-repurposer.html', icon: '♻️' },
+      { name: 'Claude Course Outline Builder', url: 'claude-course-outline-builder.html', icon: '🎓' },
+      { name: 'AI Launch Planner', url: 'ai-launch-planner.html', icon: '🚀' },
+      { name: 'Prompt Improvement Suggester', url: 'prompt-improvement-suggester.html', icon: '🔼' },
+      { name: 'AI Skill Monetisation Map', url: 'ai-skill-monetisation-map.html', icon: '🗺️' },
+      { name: 'Claude Workflow Designer', url: 'claude-workflow-designer.html', icon: '🔀' },
+      { name: 'AI Product Validation Tool', url: 'ai-product-validation-tool.html', icon: '✔️' },
+      { name: 'Prompt Bank Organiser', url: 'prompt-bank-organiser.html', icon: '🏦' },
+      { name: 'AI Revenue Tracker', url: 'ai-revenue-tracker.html', icon: '💹' },
+      { name: 'Claude Brief Optimiser', url: 'claude-brief-optimiser.html', icon: '✏️' },
+      { name: 'AI Beginner Roadmap', url: 'ai-beginner-roadmap.html', icon: '🧗' },
+      { name: 'Prompt Success Rate Tracker', url: 'prompt-success-rate-tracker.html', icon: '🎯' },
+      { name: 'AI Tool Comparison Matrix', url: 'ai-tool-comparison-matrix.html', icon: '🆚' },
+      { name: 'Claude Business Blueprint', url: 'claude-business-blueprint.html', icon: '📐' },
+    ]
+  },
+  {
+    id: 'Social Media Growth',
+    icon: '📱',
+    desc: '50 tools to grow, monetise, and sustain a following across every platform',
+    apps: [
+      { name: 'Follower Goal Tracker', url: 'follower-goal-tracker.html', icon: '🎯' },
+      { name: 'Engagement Rate Calculator', url: 'social-engagement-rate-calculator.html', icon: '💯' },
+      { name: 'Profile Audit Checklist', url: 'profile-audit-checklist.html', icon: '✅' },
+      { name: 'Bio Optimiser Tool', url: 'bio-optimiser-tool.html', icon: '✍️' },
+      { name: 'Content Frequency Planner', url: 'content-frequency-planner.html', icon: '📅' },
+      { name: 'Growth Rate Calculator', url: 'growth-rate-calculator.html', icon: '📈' },
+      { name: 'Platform Comparison Tool', url: 'platform-comparison-tool.html', icon: '⚖️' },
+      { name: 'Audience Avatar Builder', url: 'audience-avatar-builder.html', icon: '🧑' },
+      { name: 'Niche Authority Checker', url: 'niche-authority-checker.html', icon: '👑' },
+      { name: 'Collaboration Finder Tool', url: 'collaboration-finder-tool.html', icon: '🤝' },
+      { name: 'Viral Content Formula Tool', url: 'viral-content-formula-tool.html', icon: '🔥' },
+      { name: 'Cross Platform Planner', url: 'cross-platform-planner.html', icon: '🔀' },
+      { name: 'Social Media Detox Planner', url: 'social-media-detox-planner.html', icon: '🧘' },
+      { name: 'Posting Schedule Builder', url: 'posting-schedule-builder.html', icon: '🗓️' },
+      { name: 'Analytics Dashboard', url: 'analytics-dashboard.html', icon: '📊' },
+      { name: 'Reach vs Engagement Tracker', url: 'reach-vs-engagement-tracker.html', icon: '📡' },
+      { name: 'Story Views Tracker', url: 'story-views-tracker.html', icon: '👁️' },
+      { name: 'Link In Bio Optimiser', url: 'link-in-bio-optimiser.html', icon: '🔗' },
+      { name: 'Social Proof Calculator', url: 'social-proof-calculator.html', icon: '⭐' },
+      { name: 'Influence Score Estimator', url: 'influence-score-estimator.html', icon: '🌟' },
+      { name: 'Brand Deal Rate Calculator', url: 'brand-deal-rate-calculator.html', icon: '💲' },
+      { name: 'Sponsorship Pitch Builder', url: 'sponsorship-pitch-builder.html', icon: '📧' },
+      { name: 'UGC Creator Brief Tool', url: 'ugc-creator-brief-tool.html', icon: '🎬' },
+      { name: 'Creator Rate Card Builder', url: 'creator-rate-card-builder.html', icon: '🧾' },
+      { name: 'Media Kit Checklist', url: 'media-kit-checklist.html', icon: '📁' },
+      { name: 'Brand Partnership Tracker', url: 'brand-partnership-tracker.html', icon: '🤝' },
+      { name: 'Audience Growth Planner', url: 'audience-growth-planner.html', icon: '🌱' },
+      { name: 'Community Building Roadmap', url: 'community-building-roadmap.html', icon: '👥' },
+      { name: 'Platform Algorithm Checker', url: 'platform-algorithm-checker.html', icon: '🤖' },
+      { name: 'Best Content Type Selector', url: 'best-content-type-selector.html', icon: '🎯' },
+      { name: 'Trending Topic Finder', url: 'trending-topic-finder.html', icon: '📈' },
+      { name: 'Comment Strategy Planner', url: 'comment-strategy-planner.html', icon: '💬' },
+      { name: 'DM Outreach Tracker', url: 'dm-outreach-tracker.html', icon: '📩' },
+      { name: 'Collaboration Proposal Builder', url: 'collaboration-proposal-builder.html', icon: '📝' },
+      { name: 'Creator Income Calculator', url: 'creator-income-calculator.html', icon: '💰' },
+      { name: 'Platform Monetisation Checker', url: 'platform-monetisation-checker.html', icon: '🔓' },
+      { name: 'Social Media Audit Tool', url: 'social-media-audit-tool.html', icon: '🔍' },
+      { name: 'Content Performance Scorer', url: 'content-performance-scorer.html', icon: '🏅' },
+      { name: 'Reach Multiplier Calculator', url: 'reach-multiplier-calculator.html', icon: '🚀' },
+      { name: 'Shares vs Saves Tracker', url: 'shares-vs-saves-tracker.html', icon: '🔖' },
+      { name: 'Story Poll Results Tracker', url: 'story-poll-results-tracker.html', icon: '📊' },
+      { name: 'Live Stream Planner', url: 'live-stream-planner.html', icon: '📺' },
+      { name: 'Creator Burnout Checker', url: 'creator-burnout-checker.html', icon: '🪫' },
+      { name: 'Consistency Score Calculator', url: 'consistency-score-calculator.html', icon: '🔁' },
+      { name: 'Social Media Goal Setter', url: 'social-media-goal-setter.html', icon: '🎯' },
+      { name: 'Platform Switch Planner', url: 'platform-switch-planner.html', icon: '🔄' },
+      { name: 'Niche Down Tool', url: 'niche-down-tool.html', icon: '🎯' },
+      { name: 'Content Pillars Clarifier', url: 'content-pillars-clarifier.html', icon: '🏛️' },
+      { name: 'Brand Aesthetic Planner', url: 'brand-aesthetic-planner.html', icon: '🎨' },
+      { name: 'Social Media ROI Calculator', url: 'social-media-roi-calculator.html', icon: '💵' },
+    ]
+  },
+  {
+    id: 'Email Marketing',
+    icon: '📧',
+    desc: '50 tools to grow, nurture, and monetise an email list that actually pays you',
+    apps: [
+      { name: 'Email List Growth Tracker', url: 'email-subscriber-growth-tracker.html', icon: '📈' },
+      { name: 'Open Rate Calculator', url: 'open-rate-calculator.html', icon: '🔓' },
+      { name: 'Click Through Rate Tracker', url: 'click-through-rate-tracker.html', icon: '🖱️' },
+      { name: 'Subject Line Tester', url: 'subject-line-tester.html', icon: '✉️' },
+      { name: 'Email Sequence Planner', url: 'email-sequence-planner.html', icon: '🗂️' },
+      { name: 'Welcome Sequence Builder', url: 'welcome-sequence-builder.html', icon: '👋' },
+      { name: 'Launch Email Planner', url: 'launch-email-planner.html', icon: '🚀' },
+      { name: 'Re-engagement Campaign Tool', url: 're-engagement-campaign-tool.html', icon: '🔄' },
+      { name: 'Unsubscribe Rate Tracker', url: 'unsubscribe-rate-tracker.html', icon: '📉' },
+      { name: 'Email Revenue Calculator', url: 'email-revenue-calculator.html', icon: '💰' },
+      { name: 'List Segmentation Planner', url: 'list-segmentation-planner.html', icon: '🧩' },
+      { name: 'Lead Magnet Idea Generator', url: 'lead-magnet-idea-generator.html', icon: '🧲' },
+      { name: 'Opt In Page Checklist', url: 'opt-in-page-checklist.html', icon: '✅' },
+      { name: 'Email Frequency Planner', url: 'email-frequency-planner.html', icon: '🔔' },
+      { name: 'Nurture Sequence Builder', url: 'nurture-sequence-builder.html', icon: '🌱' },
+      { name: 'Broadcast Email Planner', url: 'broadcast-email-planner.html', icon: '📅' },
+      { name: 'Email Audit Tool', url: 'email-audit-tool.html', icon: '🔍' },
+      { name: 'Deliverability Checker', url: 'deliverability-checker.html', icon: '🛰️' },
+      { name: 'Email Brand Voice Tool', url: 'email-brand-voice-tool.html', icon: '🗣️' },
+      { name: 'Newsletter Planner', url: 'newsletter-planner.html', icon: '📰' },
+      { name: 'Email CTA Generator', url: 'email-cta-generator.html', icon: '👉' },
+      { name: 'Subscriber Value Calculator', url: 'subscriber-value-calculator.html', icon: '💲' },
+      { name: 'Email Funnel Mapper', url: 'email-funnel-mapper.html', icon: '🗺️' },
+      { name: 'Automation Sequence Planner', url: 'automation-sequence-planner.html', icon: '⚙️' },
+      { name: 'Tagging Strategy Tool', url: 'tagging-strategy-tool.html', icon: '🏷️' },
+      { name: 'Email Split Test Planner', url: 'email-split-test-planner.html', icon: '🆚' },
+      { name: 'List Health Checker', url: 'list-health-checker.html', icon: '❤️' },
+      { name: 'Email Income Projector', url: 'email-income-projector.html', icon: '📊' },
+      { name: 'Subscriber Milestone Tracker', url: 'subscriber-milestone-tracker.html', icon: '🏁' },
+      { name: 'Email Content Calendar', url: 'email-content-calendar.html', icon: '🗓️' },
+      { name: 'Plain Text vs HTML Checker', url: 'plain-text-vs-html-checker.html', icon: '🔤' },
+      { name: 'Email Length Optimiser', url: 'email-length-optimiser.html', icon: '📏' },
+      { name: 'P.S. Line Generator', url: 'ps-line-generator.html', icon: '✏️' },
+      { name: 'Email Opener Formula Tool', url: 'email-opener-formula-tool.html', icon: '🎯' },
+      { name: 'Story Email Builder', url: 'story-email-builder.html', icon: '📖' },
+      { name: 'Value Email Planner', url: 'value-email-planner.html', icon: '🎁' },
+      { name: 'Sales Email Framework Tool', url: 'sales-email-framework-tool.html', icon: '🧱' },
+      { name: 'Last Chance Email Builder', url: 'last-chance-email-builder.html', icon: '⏰' },
+      { name: 'Post Launch Email Planner', url: 'post-launch-email-planner.html', icon: '🎉' },
+      { name: 'Thank You Email Generator', url: 'thank-you-email-generator.html', icon: '🙏' },
+      { name: 'Onboarding Sequence Builder', url: 'onboarding-sequence-builder.html', icon: '🛬' },
+      { name: 'Upsell Email Planner', url: 'upsell-email-planner.html', icon: '⬆️' },
+      { name: 'Testimonial Request Email Tool', url: 'testimonial-request-email-tool.html', icon: '⭐' },
+      { name: 'Survey Email Builder', url: 'survey-email-builder.html', icon: '📝' },
+      { name: 'Anniversary Email Planner', url: 'anniversary-email-planner.html', icon: '🎊' },
+      { name: 'Birthday Email Tool', url: 'birthday-email-tool.html', icon: '🎂' },
+      { name: 'Win Back Campaign Planner', url: 'win-back-campaign-planner.html', icon: '🪃' },
+      { name: 'Email Metrics Dashboard', url: 'email-metrics-dashboard.html', icon: '📊' },
+      { name: 'List Monetisation Calculator', url: 'list-monetisation-calculator.html', icon: '💹' },
+      { name: 'Email Empire Roadmap', url: 'email-empire-roadmap.html', icon: '🏛️' },
+    ]
+  },
+  {
+    id: 'Mindset & Personal Development',
+    icon: '🧠',
+    desc: '50 tools to shift mindset, build resilience, and become who you want to be',
+    apps: [
+      { name: 'Morning Mindset Setter', url: 'morning-mindset-setter.html', icon: '☀️' },
+      { name: 'Gratitude Journal Tool', url: 'gratitude-journal-tool.html', icon: '🙏' },
+      { name: 'Affirmation Generator', url: 'affirmation-generator.html', icon: '✨' },
+      { name: 'Limiting Belief Identifier', url: 'limiting-belief-identifier.html', icon: '🔍' },
+      { name: 'Confidence Score Calculator', url: 'confidence-score-calculator.html', icon: '💪' },
+      { name: 'Fear Mapping Tool', url: 'fear-mapping-tool.html', icon: '🗺️' },
+      { name: 'Growth Mindset Checker', url: 'growth-mindset-checker.html', icon: '🌱' },
+      { name: 'Daily Intention Builder', url: 'daily-intention-builder.html', icon: '🎯' },
+      { name: 'Values Clarifier', url: 'values-clarifier.html', icon: '🧭' },
+      { name: 'Life Wheel Assessment', url: 'life-wheel-assessment.html', icon: '🔄' },
+      { name: 'Strengths Identifier', url: 'strengths-identifier.html', icon: '⭐' },
+      { name: 'Weakness to Strength Converter', url: 'weakness-to-strength-converter.html', icon: '🔁' },
+      { name: 'Goal Alignment Checker', url: 'goal-alignment-checker.html', icon: '✅' },
+      { name: 'Motivation Level Tracker', url: 'motivation-level-tracker.html', icon: '📈' },
+      { name: 'Mindset Reset Tool', url: 'mindset-reset-tool.html', icon: '🔄' },
+      { name: 'Inner Critic Silencer', url: 'inner-critic-silencer.html', icon: '🤫' },
+      { name: 'Self Compassion Prompt Tool', url: 'self-compassion-prompt-tool.html', icon: '💛' },
+      { name: 'Resilience Score Calculator', url: 'resilience-score-calculator.html', icon: '🪨' },
+      { name: 'Comfort Zone Expander', url: 'comfort-zone-expander.html', icon: '🚀' },
+      { name: 'Courage Action Planner', url: 'courage-action-planner.html', icon: '🦁' },
+      { name: 'Identity Shift Tool', url: 'identity-shift-tool.html', icon: '🦋' },
+      { name: 'Belief Upgrade Planner', url: 'belief-upgrade-planner.html', icon: '⬆️' },
+      { name: 'Vision Clarity Tool', url: 'vision-clarity-tool.html', icon: '👁️' },
+      { name: 'Purpose Finder', url: 'purpose-finder.html', icon: '🌟' },
+      { name: 'Legacy Builder', url: 'legacy-builder.html', icon: '🏛️' },
+      { name: 'Success Definition Tool', url: 'success-definition-tool.html', icon: '🏆' },
+      { name: 'Celebration Practice Planner', url: 'celebration-practice-planner.html', icon: '🎉' },
+      { name: 'Emotional Intelligence Checker', url: 'emotional-intelligence-checker.html', icon: '❤️' },
+      { name: 'Boundaries Assessment Tool', url: 'boundaries-assessment-tool.html', icon: '🛡️' },
+      { name: 'Energy Vampire Identifier', url: 'energy-vampire-identifier.html', icon: '🧛' },
+      { name: 'People Pleasing Pattern Checker', url: 'people-pleasing-pattern-checker.html', icon: '🙃' },
+      { name: 'Imposter Syndrome Buster', url: 'imposter-syndrome-buster.html', icon: '🎭' },
+      { name: 'Perfectionism Checker', url: 'perfectionism-checker.html', icon: '💎' },
+      { name: 'Procrastination Root Cause Tool', url: 'procrastination-root-cause-tool.html', icon: '🪛' },
+      { name: 'Self Sabotage Identifier', url: 'self-sabotage-identifier.html', icon: '🚧' },
+      { name: 'Worthiness Score Calculator', url: 'worthiness-score-calculator.html', icon: '💗' },
+      { name: 'Money Mindset Checker', url: 'money-mindset-checker.html', icon: '💰' },
+      { name: 'Abundance Mindset Builder', url: 'abundance-mindset-builder.html', icon: '🌾' },
+      { name: 'Scarcity Pattern Identifier', url: 'scarcity-pattern-identifier.html', icon: '⚠️' },
+      { name: 'Future Self Visualiser', url: 'future-self-visualiser.html', icon: '🔮' },
+      { name: 'Daily Power Questions Tool', url: 'daily-power-questions-tool.html', icon: '❓' },
+      { name: 'Evening Reflection Prompt', url: 'evening-reflection-prompt.html', icon: '🌙' },
+      { name: 'Weekly Mindset Review', url: 'weekly-mindset-review.html', icon: '📅' },
+      { name: 'Monthly Growth Assessment', url: 'monthly-growth-assessment.html', icon: '📊' },
+      { name: 'Quarterly Life Audit', url: 'quarterly-life-audit.html', icon: '🔬' },
+      { name: 'Annual Transformation Planner', url: 'annual-transformation-planner.html', icon: '🗓️' },
+      { name: 'Journaling Prompt Generator', url: 'journaling-prompt-generator.html', icon: '📓' },
+      { name: 'Meditation Topic Suggester', url: 'meditation-topic-suggester.html', icon: '🧘' },
+      { name: 'Breathwork Timer', url: 'breathwork-timer.html', icon: '💨' },
+      { name: 'Mind Body Connection Checker', url: 'mind-body-connection-checker.html', icon: '🧠' },
+    ]
+  },
+  {
+    id: 'Finance & Money',
+    icon: '💰',
+    desc: '50 tools to budget, earn, save, invest and master the relationship with money',
+    apps: [
+      { name: 'Monthly Budget Planner', url: 'monthly-budget-planner.html', icon: '📋' },
+      { name: 'Savings Goal Calculator', url: 'savings-goal-calculator.html', icon: '🎯' },
+      { name: 'Debt Payoff Tracker', url: 'debt-payoff-tracker.html', icon: '🪜' },
+      { name: 'Emergency Fund Builder', url: 'emergency-fund-builder.html', icon: '🛟' },
+      { name: 'Income vs Expenses Dashboard', url: 'income-vs-expenses-dashboard.html', icon: '📊' },
+      { name: 'Net Worth Calculator', url: 'net-worth-calculator.html', icon: '🧮' },
+      { name: 'Financial Freedom Calculator', url: 'financial-freedom-calculator.html', icon: '🕊️' },
+      { name: 'Investment Goal Tracker', url: 'investment-goal-tracker.html', icon: '📈' },
+      { name: 'Side Hustle Income Tracker', url: 'finance-side-hustle-income-tracker.html', icon: '💼' },
+      { name: 'Multiple Income Stream Planner', url: 'multiple-income-stream-planner.html', icon: '🌊' },
+      { name: 'Money Date Planner', url: 'money-date-planner.html', icon: '💛' },
+      { name: 'Spending Audit Tool', url: 'spending-audit-tool.html', icon: '🔍' },
+      { name: 'Subscription Cost Calculator', url: 'subscription-cost-calculator.html', icon: '🧾' },
+      { name: 'Financial Goal Setter', url: 'financial-goal-setter.html', icon: '🎯' },
+      { name: 'Money Mindset Assessment', url: 'money-mindset-assessment.html', icon: '🧠' },
+      { name: 'Wealth Building Roadmap', url: 'wealth-building-roadmap.html', icon: '🗺️' },
+      { name: 'Tax Preparation Checklist', url: 'tax-preparation-checklist.html', icon: '🗂️' },
+      { name: 'Business Expense Tracker', url: 'finance-business-expense-tracker.html', icon: '🧾' },
+      { name: 'Profit First Calculator', url: 'profit-first-calculator.html', icon: '💵' },
+      { name: 'Revenue Goal Planner', url: 'revenue-goal-planner.html', icon: '📈' },
+      { name: 'Price Increase Calculator', url: 'price-increase-calculator.html', icon: '⬆️' },
+      { name: 'Raise Request Builder', url: 'raise-request-builder.html', icon: '📣' },
+      { name: 'Freelance Rate Setter', url: 'freelance-rate-setter.html', icon: '💰' },
+      { name: 'Hourly Rate Calculator', url: 'hourly-rate-calculator.html', icon: '⏱️' },
+      { name: 'Package Pricing Tool', url: 'package-pricing-tool.html', icon: '📦' },
+      { name: 'Discount Impact Calculator', url: 'discount-impact-calculator.html', icon: '🏷️' },
+      { name: 'Black Friday Revenue Planner', url: 'black-friday-revenue-planner.html', icon: '🛍️' },
+      { name: 'Holiday Income Projector', url: 'holiday-income-projector.html', icon: '🎄' },
+      { name: 'Passive Income Calculator', url: 'passive-income-calculator.html', icon: '🌱' },
+      { name: 'Financial Independence Tracker', url: 'financial-independence-tracker.html', icon: '🕊️' },
+      { name: 'FIRE Number Calculator', url: 'fire-number-calculator.html', icon: '🔥' },
+      { name: 'Retirement Savings Planner', url: 'retirement-savings-planner.html', icon: '🌅' },
+      { name: 'College Fund Calculator', url: 'college-fund-calculator.html', icon: '🎓' },
+      { name: 'Home Buying Readiness Checker', url: 'home-buying-readiness-checker.html', icon: '🏡' },
+      { name: 'Credit Score Improvement Planner', url: 'credit-score-improvement-planner.html', icon: '📊' },
+      { name: 'Bill Negotiation Tracker', url: 'bill-negotiation-tracker.html', icon: '📞' },
+      { name: 'Grocery Budget Optimiser', url: 'grocery-budget-optimiser.html', icon: '🛒' },
+      { name: 'Eating Out Budget Tracker', url: 'eating-out-budget-tracker.html', icon: '🍽️' },
+      { name: 'Travel Fund Calculator', url: 'travel-fund-calculator.html', icon: '✈️' },
+      { name: 'Fun Money Allocator', url: 'fun-money-allocator.html', icon: '🎉' },
+      { name: 'Giving Budget Planner', url: 'giving-budget-planner.html', icon: '🤲' },
+      { name: 'Financial Values Clarifier', url: 'financial-values-clarifier.html', icon: '🧭' },
+      { name: 'Money Story Identifier', url: 'money-story-identifier.html', icon: '📖' },
+      { name: 'Wealth Affirmation Generator', url: 'wealth-affirmation-generator.html', icon: '✨' },
+      { name: 'Financial Milestone Celebrator', url: 'financial-milestone-celebrator.html', icon: '🏆' },
+      { name: 'Money Leak Finder', url: 'money-leak-finder.html', icon: '💧' },
+      { name: 'Financial Boundary Setter', url: 'financial-boundary-setter.html', icon: '🛡️' },
+      { name: 'Abundance Journal Prompt Tool', url: 'abundance-journal-prompt-tool.html', icon: '🌾' },
+      { name: 'Money Goal Vision Board', url: 'money-goal-vision-board.html', icon: '🖼️' },
+      { name: 'Financial Legacy Planner', url: 'financial-legacy-planner.html', icon: '🏛️' },
+    ]
+  },
+  {
+    id: 'Health & Wellness',
+    icon: '💪',
+    desc: '50 tools to track, plan and protect your physical, mental and emotional health',
+    apps: [
+      { name: 'Daily Water Intake Tracker', url: 'daily-water-intake-tracker.html', icon: '💧' },
+      { name: 'Sleep Quality Logger', url: 'sleep-quality-logger.html', icon: '😴' },
+      { name: 'Meal Planning Tool', url: 'meal-planning-tool.html', icon: '🍽️' },
+      { name: 'Workout Planner', url: 'workout-planner.html', icon: '🏋️' },
+      { name: 'Step Goal Tracker', url: 'step-goal-tracker.html', icon: '👟' },
+      { name: 'Calorie Awareness Tool', url: 'calorie-awareness-tool.html', icon: '🔢' },
+      { name: 'Stress Level Checker', url: 'stress-level-checker.html', icon: '🌡️' },
+      { name: 'Mood Tracker', url: 'mood-tracker.html', icon: '🙂' },
+      { name: 'Energy Level Monitor', url: 'energy-level-monitor.html', icon: '⚡' },
+      { name: 'Rest Day Planner', url: 'rest-day-planner.html', icon: '🛌' },
+      { name: 'Supplement Tracker', url: 'supplement-tracker.html', icon: '💊' },
+      { name: 'Medication Reminder Tool', url: 'medication-reminder-tool.html', icon: '⏰' },
+      { name: 'Symptom Logger', url: 'symptom-logger.html', icon: '📋' },
+      { name: 'Doctor Appointment Planner', url: 'doctor-appointment-planner.html', icon: '🩺' },
+      { name: 'Health Goal Setter', url: 'health-goal-setter.html', icon: '🎯' },
+      { name: 'Body Measurement Tracker', url: 'body-measurement-tracker.html', icon: '📏' },
+      { name: 'Fitness Milestone Celebrator', url: 'fitness-milestone-celebrator.html', icon: '🏆' },
+      { name: 'Workout Streak Counter', url: 'workout-streak-counter.html', icon: '🔥' },
+      { name: 'Active Recovery Planner', url: 'active-recovery-planner.html', icon: '🧘' },
+      { name: 'Stretching Routine Builder', url: 'stretching-routine-builder.html', icon: '🤸' },
+      { name: 'Breathwork Practice Timer', url: 'breathwork-practice-timer.html', icon: '🫁' },
+      { name: 'Meditation Session Tracker', url: 'meditation-session-tracker.html', icon: '🧎' },
+      { name: 'Gratitude Health Journal', url: 'gratitude-health-journal.html', icon: '🙏' },
+      { name: 'Emotional Eating Checker', url: 'emotional-eating-checker.html', icon: '🍫' },
+      { name: 'Hunger Scale Tool', url: 'hunger-scale-tool.html', icon: '📊' },
+      { name: 'Intuitive Eating Planner', url: 'intuitive-eating-planner.html', icon: '🥗' },
+      { name: 'Food Mood Journal', url: 'food-mood-journal.html', icon: '📓' },
+      { name: 'Anti Inflammatory Food Tracker', url: 'anti-inflammatory-food-tracker.html', icon: '🥦' },
+      { name: 'Gut Health Planner', url: 'gut-health-planner.html', icon: '🦠' },
+      { name: 'Hormone Balance Checker', url: 'hormone-balance-checker.html', icon: '⚖️' },
+      { name: 'Cycle Tracking Tool', url: 'cycle-tracking-tool.html', icon: '🌙' },
+      { name: 'Perimenopause Symptom Logger', url: 'perimenopause-symptom-logger.html', icon: '📝' },
+      { name: 'Menopause Support Planner', url: 'menopause-support-planner.html', icon: '🌸' },
+      { name: 'Skin Care Routine Builder', url: 'skin-care-routine-builder.html', icon: '✨' },
+      { name: 'Hair Care Tracker', url: 'hair-care-tracker.html', icon: '💇' },
+      { name: 'Self Care Menu Builder', url: 'self-care-menu-builder.html', icon: '🤍' },
+      { name: 'Boundaries For Health Planner', url: 'boundaries-for-health-planner.html', icon: '🛡️' },
+      { name: 'Screen Time Tracker', url: 'screen-time-tracker.html', icon: '📱' },
+      { name: 'Digital Detox Planner', url: 'digital-detox-planner.html', icon: '🔌' },
+      { name: 'Nature Time Tracker', url: 'nature-time-tracker.html', icon: '🌿' },
+      { name: 'Social Battery Checker', url: 'social-battery-checker.html', icon: '🔋' },
+      { name: 'Introvert Recharge Planner', url: 'introvert-recharge-planner.html', icon: '🌙' },
+      { name: 'Chronic Pain Journal', url: 'chronic-pain-journal.html', icon: '📔' },
+      { name: 'Anxiety Trigger Tracker', url: 'anxiety-trigger-tracker.html', icon: '🌀' },
+      { name: 'Depression Support Planner', url: 'depression-support-planner.html', icon: '🌅' },
+      { name: 'Therapy Prep Tool', url: 'therapy-prep-tool.html', icon: '💬' },
+      { name: 'Wellness Wheel Assessment', url: 'wellness-wheel-assessment.html', icon: '☸️' },
+      { name: 'Health Vision Board', url: 'health-vision-board.html', icon: '🖼️' },
+      { name: 'Longevity Habit Tracker', url: 'longevity-habit-tracker.html', icon: '♾️' },
+      { name: 'Holistic Health Dashboard', url: 'holistic-health-dashboard.html', icon: '🩹' },
+    ]
+  },
+  {
+    id: 'Relationships & Family',
+    icon: '❤️',
+    desc: '50 tools to nurture love, family, friendship and every connection that matters',
+    apps: [
+      { name: 'Date Night Idea Generator', url: 'date-night-idea-generator.html', icon: '🌙' },
+      { name: 'Relationship Health Checker', url: 'relationship-health-checker.html', icon: '💞' },
+      { name: 'Communication Style Tool', url: 'communication-style-tool.html', icon: '💬' },
+      { name: 'Love Language Identifier', url: 'love-language-identifier.html', icon: '❤️' },
+      { name: 'Conflict Resolution Planner', url: 'conflict-resolution-planner.html', icon: '🤝' },
+      { name: 'Appreciation Practice Tool', url: 'appreciation-practice-tool.html', icon: '🌟' },
+      { name: 'Family Meeting Agenda Builder', url: 'family-meeting-agenda-builder.html', icon: '📋' },
+      { name: 'Chore Distribution Planner', url: 'chore-distribution-planner.html', icon: '🧹' },
+      { name: 'Family Budget Tool', url: 'family-budget-tool.html', icon: '💰' },
+      { name: 'Kids Activity Planner', url: 'kids-activity-planner.html', icon: '🎨' },
+      { name: 'Parenting Style Checker', url: 'parenting-style-checker.html', icon: '👪' },
+      { name: 'Screen Time Agreement Builder', url: 'screen-time-agreement-builder.html', icon: '📱' },
+      { name: 'Family Values Clarifier', url: 'family-values-clarifier.html', icon: '🧭' },
+      { name: 'Tradition Builder Tool', url: 'tradition-builder-tool.html', icon: '🎎' },
+      { name: 'Memory Making Planner', url: 'memory-making-planner.html', icon: '📸' },
+      { name: 'Family Goal Setter', url: 'family-goal-setter.html', icon: '🎯' },
+      { name: 'Holiday Planning Tool', url: 'holiday-planning-tool.html', icon: '🎄' },
+      { name: 'Birthday Reminder Tracker', url: 'birthday-reminder-tracker.html', icon: '🎂' },
+      { name: 'Gift Idea Generator', url: 'gift-idea-generator.html', icon: '🎁' },
+      { name: 'Celebration Planner', url: 'celebration-planner.html', icon: '🎉' },
+      { name: 'Friendship Audit Tool', url: 'friendship-audit-tool.html', icon: '🫂' },
+      { name: 'Social Calendar Planner', url: 'social-calendar-planner.html', icon: '🗓️' },
+      { name: 'Boundary Setting Script Tool', url: 'boundary-setting-script-tool.html', icon: '🛡️' },
+      { name: 'Difficult Conversation Planner', url: 'difficult-conversation-planner.html', icon: '🗣️' },
+      { name: 'Apology Formula Builder', url: 'apology-formula-builder.html', icon: '🕊️' },
+      { name: 'Forgiveness Journal Tool', url: 'forgiveness-journal-tool.html', icon: '🌱' },
+      { name: 'Gratitude for Others Tracker', url: 'gratitude-for-others-tracker.html', icon: '🙏' },
+      { name: 'Acts of Service Planner', url: 'acts-of-service-planner.html', icon: '🤲' },
+      { name: 'Quality Time Tracker', url: 'quality-time-tracker.html', icon: '⏳' },
+      { name: 'Long Distance Relationship Planner', url: 'long-distance-relationship-planner.html', icon: '✈️' },
+      { name: 'New Baby Preparation Checklist', url: 'new-baby-preparation-checklist.html', icon: '🍼' },
+      { name: 'Toddler Activity Generator', url: 'toddler-activity-generator.html', icon: '🧸' },
+      { name: 'School Age Learning Planner', url: 'school-age-learning-planner.html', icon: '✏️' },
+      { name: 'Teen Communication Tool', url: 'teen-communication-tool.html', icon: '🧑' },
+      { name: 'Empty Nest Transition Planner', url: 'empty-nest-transition-planner.html', icon: '🏡' },
+      { name: 'Ageing Parent Care Planner', url: 'ageing-parent-care-planner.html', icon: '👵' },
+      { name: 'Grief Support Journal', url: 'grief-support-journal.html', icon: '🤍' },
+      { name: 'Divorce Recovery Planner', url: 'divorce-recovery-planner.html', icon: '🌗' },
+      { name: 'Blended Family Toolkit', url: 'blended-family-toolkit.html', icon: '👨‍👩‍👧‍👦' },
+      { name: 'Co Parenting Communication Tool', url: 'co-parenting-communication-tool.html', icon: '✉️' },
+      { name: 'Self Love Practice Builder', url: 'self-love-practice-builder.html', icon: '💛' },
+      { name: 'Single Parent Support Planner', url: 'single-parent-support-planner.html', icon: '💪' },
+      { name: 'Community Connection Tool', url: 'community-connection-tool.html', icon: '🌍' },
+      { name: 'Neighbour Relationship Builder', url: 'neighbour-relationship-builder.html', icon: '🏘️' },
+      { name: 'Work Friendship Planner', url: 'work-friendship-planner.html', icon: '☕' },
+      { name: 'Mentor Relationship Tracker', url: 'mentor-relationship-tracker.html', icon: '🧑‍🏫' },
+      { name: 'Mentee Progress Tool', url: 'mentee-progress-tool.html', icon: '📈' },
+      { name: 'Networking Conversation Starter', url: 'networking-conversation-starter.html', icon: '🤝' },
+      { name: 'Professional Relationship Builder', url: 'professional-relationship-builder.html', icon: '💼' },
+      { name: 'Legacy Letter Generator', url: 'legacy-letter-generator.html', icon: '📜' },
+    ]
+  },
+  {
+    id: 'Education & Learning',
+    icon: '📚',
+    desc: '50 tools to study smarter, learn new skills, and navigate school, courses and careers',
+    apps: [
+      { name: 'Study Session Planner', url: 'study-session-planner.html', icon: '📖' },
+      { name: 'Learning Goal Setter', url: 'learning-goal-setter.html', icon: '🎯' },
+      { name: 'Course Note Organiser', url: 'course-note-organiser.html', icon: '🗂️' },
+      { name: 'Flashcard Generator', url: 'flashcard-generator.html', icon: '🃏' },
+      { name: 'Reading List Tracker', url: 'reading-list-tracker.html', icon: '📚' },
+      { name: 'Book Summary Builder', url: 'book-summary-builder.html', icon: '📝' },
+      { name: 'Skill Acquisition Planner', url: 'skill-acquisition-planner.html', icon: '🧗' },
+      { name: 'Learning Style Identifier', url: 'learning-style-identifier.html', icon: '🧠' },
+      { name: 'Knowledge Gap Finder', url: 'knowledge-gap-finder.html', icon: '🔍' },
+      { name: 'Course Completion Tracker', url: 'course-completion-tracker.html', icon: '✅' },
+      { name: 'Online Course Evaluator', url: 'online-course-evaluator.html', icon: '⭐' },
+      { name: 'Certification Roadmap Builder', url: 'certification-roadmap-builder.html', icon: '🏅' },
+      { name: 'Language Learning Planner', url: 'language-learning-planner.html', icon: '🗣️' },
+      { name: 'Vocabulary Builder Tool', url: 'vocabulary-builder-tool.html', icon: '🔤' },
+      { name: 'Grammar Checker Brief', url: 'grammar-checker-brief.html', icon: '✏️' },
+      { name: 'Essay Outline Builder', url: 'essay-outline-builder.html', icon: '📄' },
+      { name: 'Research Topic Generator', url: 'research-topic-generator.html', icon: '💡' },
+      { name: 'Bibliography Organiser', url: 'bibliography-organiser.html', icon: '📑' },
+      { name: 'Study Schedule Builder', url: 'study-schedule-builder.html', icon: '🗓️' },
+      { name: 'Exam Preparation Planner', url: 'exam-preparation-planner.html', icon: '📋' },
+      { name: 'Test Anxiety Reducer', url: 'test-anxiety-reducer.html', icon: '🌬️' },
+      { name: 'Academic Goal Tracker', url: 'academic-goal-tracker.html', icon: '📈' },
+      { name: 'Scholarship Search Planner', url: 'scholarship-search-planner.html', icon: '🎓' },
+      { name: 'Student Budget Calculator', url: 'student-budget-calculator.html', icon: '💰' },
+      { name: 'Internship Application Tracker', url: 'internship-application-tracker.html', icon: '🧳' },
+      { name: 'Career Exploration Tool', url: 'career-exploration-tool.html', icon: '🧭' },
+      { name: 'Skills Resume Builder', url: 'skills-resume-builder.html', icon: '📃' },
+      { name: 'Interview Preparation Checklist', url: 'interview-preparation-checklist.html', icon: '🤝' },
+      { name: 'Job Application Tracker', url: 'job-application-tracker.html', icon: '💼' },
+      { name: 'Salary Negotiation Calculator', url: 'salary-negotiation-calculator.html', icon: '💵' },
+      { name: 'Professional Development Planner', url: 'professional-development-planner.html', icon: '🚀' },
+      { name: 'Conference Learning Tool', url: 'conference-learning-tool.html', icon: '🎤' },
+      { name: 'Workshop Notes Organiser', url: 'workshop-notes-organiser.html', icon: '🗒️' },
+      { name: 'Podcast Learning Tracker', url: 'podcast-learning-tracker.html', icon: '🎧' },
+      { name: 'YouTube Learning Planner', url: 'youtube-learning-planner.html', icon: '▶️' },
+      { name: 'Newsletter Knowledge Tracker', url: 'newsletter-knowledge-tracker.html', icon: '📬' },
+      { name: 'Mastermind Prep Tool', url: 'mastermind-prep-tool.html', icon: '🧩' },
+      { name: 'Coaching Session Planner', url: 'coaching-session-planner.html', icon: '🎯' },
+      { name: 'Mentor Meeting Agenda', url: 'mentor-meeting-agenda.html', icon: '🧑‍🏫' },
+      { name: 'Peer Learning Group Organiser', url: 'peer-learning-group-organiser.html', icon: '👥' },
+      { name: 'Teaching Preparation Tool', url: 'teaching-preparation-tool.html', icon: '🍎' },
+      { name: 'Curriculum Builder', url: 'curriculum-builder.html', icon: '🏗️' },
+      { name: 'Lesson Plan Creator', url: 'lesson-plan-creator.html', icon: '📐' },
+      { name: 'Student Progress Tracker', url: 'student-progress-tracker.html', icon: '📊' },
+      { name: 'Parent Teacher Meeting Prep', url: 'parent-teacher-meeting-prep.html', icon: '👪' },
+      { name: 'Homeschool Planner', url: 'homeschool-planner.html', icon: '🏡' },
+      { name: 'Unschooling Activity Generator', url: 'unschooling-activity-generator.html', icon: '🌱' },
+      { name: 'ADHD Learning Support Tool', url: 'adhd-learning-support-tool.html', icon: '⚡' },
+      { name: 'Dyslexia Friendly Study Planner', url: 'dyslexia-friendly-study-planner.html', icon: '🔡' },
+      { name: 'Gifted Learner Challenge Builder', url: 'gifted-learner-challenge-builder.html', icon: '🌟' },
+    ]
+  },
+  {
+    id: 'Travel & Lifestyle',
+    icon: '✈️',
+    desc: '50 tools to plan trips, travel smarter, and design a location-flexible life',
+    apps: [
+      { name: 'Trip Planning Tool', url: 'trip-planning-tool.html', icon: '🗺️' },
+      { name: 'Packing List Generator', url: 'packing-list-generator.html', icon: '🧳' },
+      { name: 'Travel Budget Calculator', url: 'travel-budget-calculator.html', icon: '💰' },
+      { name: 'Flight Comparison Tracker', url: 'flight-comparison-tracker.html', icon: '✈️' },
+      { name: 'Hotel Checklist Tool', url: 'hotel-checklist-tool.html', icon: '🏨' },
+      { name: 'Itinerary Builder', url: 'itinerary-builder.html', icon: '📋' },
+      { name: 'Travel Goal Setter', url: 'travel-goal-setter.html', icon: '🎯' },
+      { name: 'Passport Expiry Tracker', url: 'passport-expiry-tracker.html', icon: '🛂' },
+      { name: 'Travel Insurance Checker', url: 'travel-insurance-checker.html', icon: '🛡️' },
+      { name: 'Solo Travel Safety Planner', url: 'solo-travel-safety-planner.html', icon: '🧭' },
+      { name: 'Digital Nomad Setup Checker', url: 'digital-nomad-setup-checker.html', icon: '💻' },
+      { name: 'Remote Work Travel Planner', url: 'remote-work-travel-planner.html', icon: '🌍' },
+      { name: 'Time Zone Converter', url: 'time-zone-converter.html', icon: '🕐' },
+      { name: 'Currency Budget Tool', url: 'currency-budget-tool.html', icon: '💱' },
+      { name: 'Travel Phrase Generator', url: 'travel-phrase-generator.html', icon: '🗣️' },
+      { name: 'Cultural Etiquette Checker', url: 'cultural-etiquette-checker.html', icon: '🙏' },
+      { name: 'Restaurant Budget Planner', url: 'restaurant-budget-planner.html', icon: '🍽️' },
+      { name: 'Activities Wishlist Builder', url: 'activities-wishlist-builder.html', icon: '⭐' },
+      { name: 'Travel Memory Journal', url: 'travel-memory-journal.html', icon: '📔' },
+      { name: 'Photo Organisation Planner', url: 'photo-organisation-planner.html', icon: '📸' },
+      { name: 'Travel Blog Post Planner', url: 'travel-blog-post-planner.html', icon: '✍️' },
+      { name: 'Instagram Travel Content Tool', url: 'instagram-travel-content-tool.html', icon: '📷' },
+      { name: 'Travel Affiliate Income Planner', url: 'travel-affiliate-income-planner.html', icon: '💵' },
+      { name: 'House Sitting Planner', url: 'house-sitting-planner.html', icon: '🏡' },
+      { name: 'Pet Travel Checklist', url: 'pet-travel-checklist.html', icon: '🐾' },
+      { name: 'Road Trip Planner', url: 'road-trip-planner.html', icon: '🚗' },
+      { name: 'Camping Checklist Builder', url: 'camping-checklist-builder.html', icon: '⛺' },
+      { name: 'Hiking Preparation Tool', url: 'hiking-preparation-tool.html', icon: '🥾' },
+      { name: 'Beach Vacation Planner', url: 'beach-vacation-planner.html', icon: '🏖️' },
+      { name: 'City Break Itinerary Builder', url: 'city-break-itinerary-builder.html', icon: '🌆' },
+      { name: 'Weekend Getaway Planner', url: 'weekend-getaway-planner.html', icon: '🧳' },
+      { name: 'Staycation Planner', url: 'staycation-planner.html', icon: '🏠' },
+      { name: 'Local Explorer Tool', url: 'local-explorer-tool.html', icon: '🧭' },
+      { name: 'Bucket List Builder', url: 'bucket-list-builder.html', icon: '🪣' },
+      { name: 'Travel Dream Board', url: 'travel-dream-board.html', icon: '🖼️' },
+      { name: 'Slow Travel Planner', url: 'slow-travel-planner.html', icon: '🐌' },
+      { name: 'Long Term Travel Budget', url: 'long-term-travel-budget.html', icon: '📊' },
+      { name: 'Travel Health Checklist', url: 'travel-health-checklist.html', icon: '💊' },
+      { name: 'Visa Requirements Tracker', url: 'visa-requirements-tracker.html', icon: '📑' },
+      { name: 'Travel Document Organiser', url: 'travel-document-organiser.html', icon: '🗂️' },
+      { name: 'Emergency Contact Card Builder', url: 'emergency-contact-card-builder.html', icon: '🆘' },
+      { name: 'Travel Community Finder', url: 'travel-community-finder.html', icon: '👥' },
+      { name: 'Travel Accountability Partner Tool', url: 'travel-accountability-partner-tool.html', icon: '🤝' },
+      { name: 'Expat Transition Planner', url: 'expat-transition-planner.html', icon: '🌐' },
+      { name: 'Country Research Tool', url: 'country-research-tool.html', icon: '🔍' },
+      { name: 'Cost Of Living Comparator', url: 'cost-of-living-comparator.html', icon: '⚖️' },
+      { name: 'Moving Abroad Checklist', url: 'moving-abroad-checklist.html', icon: '📦' },
+      { name: 'Homesickness Journal', url: 'homesickness-journal.html', icon: '🤍' },
+      { name: 'Cultural Integration Planner', url: 'cultural-integration-planner.html', icon: '🌏' },
+      { name: 'Global Lifestyle Designer', url: 'global-lifestyle-designer.html', icon: '✨' },
+    ]
+  },
+  {
+    id: 'Food & Nutrition',
+    icon: '🥗',
+    desc: '50 tools to plan meals, eat well, cut waste and master your relationship with food',
+    apps: [
+      { name: 'Weekly Meal Planner', url: 'weekly-meal-planner.html', icon: '📅' },
+      { name: 'Grocery List Generator', url: 'grocery-list-generator.html', icon: '🛒' },
+      { name: 'Recipe Idea Tool', url: 'recipe-idea-tool.html', icon: '💡' },
+      { name: 'Nutrition Goal Tracker', url: 'nutrition-goal-tracker.html', icon: '🎯' },
+      { name: 'Macro Calculator', url: 'macro-calculator.html', icon: '🧮' },
+      { name: 'Protein Intake Tracker', url: 'protein-intake-tracker.html', icon: '💪' },
+      { name: 'Meal Prep Planner', url: 'meal-prep-planner.html', icon: '🍱' },
+      { name: 'Batch Cooking Schedule', url: 'batch-cooking-schedule.html', icon: '⏲️' },
+      { name: 'Food Budget Calculator', url: 'food-budget-calculator.html', icon: '💰' },
+      { name: 'Pantry Audit Tool', url: 'pantry-audit-tool.html', icon: '🗄️' },
+      { name: 'Food Waste Tracker', url: 'food-waste-tracker.html', icon: '🗑️' },
+      { name: 'Seasonal Eating Planner', url: 'seasonal-eating-planner.html', icon: '🍂' },
+      { name: 'Farmers Market Shopping List', url: 'farmers-market-shopping-list.html', icon: '🧺' },
+      { name: 'Smoothie Recipe Generator', url: 'smoothie-recipe-generator.html', icon: '🥤' },
+      { name: 'Snack Planning Tool', url: 'snack-planning-tool.html', icon: '🥜' },
+      { name: 'Comfort Food Healthifier', url: 'comfort-food-healthifier.html', icon: '🍲' },
+      { name: 'Dining Out Budget Tracker', url: 'dining-out-budget-tracker.html', icon: '🍴' },
+      { name: 'Restaurant Menu Planner', url: 'restaurant-menu-planner.html', icon: '📋' },
+      { name: 'Food Sensitivity Tracker', url: 'food-sensitivity-tracker.html', icon: '📝' },
+      { name: 'Elimination Diet Planner', url: 'elimination-diet-planner.html', icon: '🔍' },
+      { name: 'Gut Health Food Diary', url: 'gut-health-food-diary.html', icon: '🦠' },
+      { name: 'Anti Inflammatory Meal Planner', url: 'anti-inflammatory-meal-planner.html', icon: '🥦' },
+      { name: 'Intermittent Fasting Tracker', url: 'intermittent-fasting-tracker.html', icon: '⏳' },
+      { name: 'Fasting Window Calculator', url: 'fasting-window-calculator.html', icon: '🕐' },
+      { name: 'Blood Sugar Balance Planner', url: 'blood-sugar-balance-planner.html', icon: '📊' },
+      { name: 'Energy Food Tracker', url: 'energy-food-tracker.html', icon: '⚡' },
+      { name: 'Pre Workout Meal Planner', url: 'pre-workout-meal-planner.html', icon: '🏃' },
+      { name: 'Post Workout Nutrition Tool', url: 'post-workout-nutrition-tool.html', icon: '🥗' },
+      { name: 'Hydration Calculator', url: 'hydration-calculator.html', icon: '💧' },
+      { name: 'Caffeine Intake Tracker', url: 'caffeine-intake-tracker.html', icon: '☕' },
+      { name: 'Alcohol Consumption Monitor', url: 'alcohol-consumption-monitor.html', icon: '🍷' },
+      { name: 'Sugar Reduction Planner', url: 'sugar-reduction-planner.html', icon: '🍬' },
+      { name: 'Plant Based Transition Tool', url: 'plant-based-transition-tool.html', icon: '🌱' },
+      { name: 'Vegan Protein Planner', url: 'vegan-protein-planner.html', icon: '🫘' },
+      { name: 'Keto Macro Calculator', url: 'keto-macro-calculator.html', icon: '🥑' },
+      { name: 'Mediterranean Diet Planner', url: 'mediterranean-diet-planner.html', icon: '🫒' },
+      { name: 'Mindful Eating Journal', url: 'mindful-eating-journal.html', icon: '🧘' },
+      { name: 'Hunger Fullness Tracker', url: 'hunger-fullness-tracker.html', icon: '📈' },
+      { name: 'Emotional Eating Log', url: 'emotional-eating-log.html', icon: '💭' },
+      { name: 'Food Joy Ratio Calculator', url: 'food-joy-ratio-calculator.html', icon: '😋' },
+      { name: 'Kids Nutrition Planner', url: 'kids-nutrition-planner.html', icon: '🧒' },
+      { name: 'Picky Eater Meal Helper', url: 'picky-eater-meal-helper.html', icon: '🙅' },
+      { name: 'Family Dinner Planner', url: 'family-dinner-planner.html', icon: '🍽️' },
+      { name: 'Holiday Meal Budget Tool', url: 'holiday-meal-budget-tool.html', icon: '🎄' },
+      { name: 'Potluck Dish Suggester', url: 'potluck-dish-suggester.html', icon: '🥘' },
+      { name: 'Cookbook Challenge Tracker', url: 'cookbook-challenge-tracker.html', icon: '📚' },
+      { name: 'Food Photography Planner', url: 'food-photography-planner.html', icon: '📸' },
+      { name: 'Food Blog Content Calendar', url: 'food-blog-content-calendar.html', icon: '🗓️' },
+      { name: 'Recipe Development Tool', url: 'recipe-development-tool.html', icon: '🧑‍🍳' },
+      { name: 'Food Business Income Tracker', url: 'food-business-income-tracker.html', icon: '💵' },
+    ]
+  },
+  {
+    id: 'Home & Organisation',
+    icon: '🏠',
+    desc: '50 tools to declutter, clean, organise and run a calmer, smoother home',
+    apps: [
+      { name: 'Home Declutter Planner', url: 'home-declutter-planner.html', icon: '🧹' },
+      { name: 'Room By Room Organiser', url: 'room-by-room-organiser.html', icon: '🚪' },
+      { name: 'Cleaning Schedule Builder', url: 'cleaning-schedule-builder.html', icon: '🧼' },
+      { name: 'Deep Clean Checklist', url: 'deep-clean-checklist.html', icon: '✨' },
+      { name: 'Moving House Planner', url: 'moving-house-planner.html', icon: '📦' },
+      { name: 'Home Renovation Budget Tool', url: 'home-renovation-budget-tool.html', icon: '🔨' },
+      { name: 'Interior Design Style Finder', url: 'interior-design-style-finder.html', icon: '🛋️' },
+      { name: 'Furniture Layout Planner', url: 'furniture-layout-planner.html', icon: '📐' },
+      { name: 'Home Maintenance Tracker', url: 'home-maintenance-tracker.html', icon: '🔧' },
+      { name: 'Appliance Warranty Organiser', url: 'appliance-warranty-organiser.html', icon: '🧾' },
+      { name: 'Home Insurance Checker', url: 'home-insurance-checker.html', icon: '🛡️' },
+      { name: 'Mortgage Calculator', url: 'mortgage-calculator.html', icon: '🏦' },
+      { name: 'Rent vs Buy Calculator', url: 'rent-vs-buy-calculator.html', icon: '⚖️' },
+      { name: 'Home Office Setup Checklist', url: 'home-office-setup-checklist.html', icon: '💻' },
+      { name: 'Storage Solution Planner', url: 'storage-solution-planner.html', icon: '📥' },
+      { name: 'Wardrobe Audit Tool', url: 'wardrobe-audit-tool.html', icon: '👕' },
+      { name: 'Capsule Wardrobe Builder', url: 'capsule-wardrobe-builder.html', icon: '🧥' },
+      { name: 'Laundry System Planner', url: 'laundry-system-planner.html', icon: '🧺' },
+      { name: 'Paper Clutter Organiser', url: 'paper-clutter-organiser.html', icon: '📄' },
+      { name: 'Digital File Organiser', url: 'digital-file-organiser.html', icon: '🗂️' },
+      { name: 'Password Organiser Brief', url: 'password-organiser-brief.html', icon: '🔐' },
+      { name: 'Subscription Tracker', url: 'subscription-tracker.html', icon: '🔁' },
+      { name: 'Bill Payment Calendar', url: 'bill-payment-calendar.html', icon: '📅' },
+      { name: 'Emergency Preparedness Checklist', url: 'emergency-preparedness-checklist.html', icon: '🚨' },
+      { name: 'First Aid Kit Inventory', url: 'first-aid-kit-inventory.html', icon: '🩹' },
+      { name: 'Garden Planting Calendar', url: 'garden-planting-calendar.html', icon: '🌱' },
+      { name: 'Plant Care Tracker', url: 'plant-care-tracker.html', icon: '🪴' },
+      { name: 'Pet Care Schedule', url: 'pet-care-schedule.html', icon: '🐾' },
+      { name: 'Family Command Centre Builder', url: 'family-command-centre-builder.html', icon: '📋' },
+      { name: 'School Year Planner', url: 'school-year-planner.html', icon: '🎒' },
+      { name: 'Homework Tracker', url: 'homework-tracker.html', icon: '✏️' },
+      { name: 'After School Activity Planner', url: 'after-school-activity-planner.html', icon: '⚽' },
+      { name: 'Summer Schedule Builder', url: 'summer-schedule-builder.html', icon: '☀️' },
+      { name: 'Holiday Decoration Organiser', url: 'holiday-decoration-organiser.html', icon: '🎄' },
+      { name: 'Gift Wrap Inventory Tool', url: 'gift-wrap-inventory-tool.html', icon: '🎁' },
+      { name: 'Party Planning Checklist', url: 'party-planning-checklist.html', icon: '🎉' },
+      { name: 'Birthday Budget Planner', url: 'birthday-budget-planner.html', icon: '🎂' },
+      { name: 'Holiday Meal Planner', url: 'holiday-meal-planner.html', icon: '🍽️' },
+      { name: 'Seasonal Home Checklist', url: 'seasonal-home-checklist.html', icon: '🍂' },
+      { name: 'Spring Cleaning Planner', url: 'spring-cleaning-planner.html', icon: '🌷' },
+      { name: 'Winter Preparation Checklist', url: 'winter-preparation-checklist.html', icon: '❄️' },
+      { name: 'Garage Organisation Tool', url: 'garage-organisation-tool.html', icon: '🚗' },
+      { name: 'Basement Declutter Planner', url: 'basement-declutter-planner.html', icon: '🪜' },
+      { name: 'Attic Inventory Builder', url: 'attic-inventory-builder.html', icon: '📦' },
+      { name: 'Storage Unit Organiser', url: 'storage-unit-organiser.html', icon: '🏚️' },
+      { name: 'Donation Tracker', url: 'donation-tracker.html', icon: '🤲' },
+      { name: 'Sell Online Preparation Tool', url: 'sell-online-preparation-tool.html', icon: '🏷️' },
+      { name: 'Home Inventory Insurance Tool', url: 'home-inventory-insurance-tool.html', icon: '🗒️' },
+      { name: 'Neighbourhood Watch Planner', url: 'neighbourhood-watch-planner.html', icon: '👁️' },
+      { name: 'Community Board Organiser', url: 'community-board-organiser.html', icon: '📌' },
+    ]
+  },
+  {
+    id: 'Career & Job Search',
+    icon: '💼',
+    desc: '50 tools to land the job, grow your career, navigate the workplace and plan your next move',
+    apps: [
+      { name: 'Resume Bullet Point Builder', url: 'resume-bullet-point-builder.html', icon: '📝' },
+      { name: 'Cover Letter Outline Tool', url: 'cover-letter-outline-tool.html', icon: '📄' },
+      { name: 'Job Application Tracker', url: 'job-search-tracker.html', icon: '📋' },
+      { name: 'Interview Preparation Checklist', url: 'interview-prep-checklist.html', icon: '🤝' },
+      { name: 'Salary Research Tool', url: 'salary-research-tool.html', icon: '💵' },
+      { name: 'Negotiation Script Builder', url: 'negotiation-script-builder.html', icon: '🗣️' },
+      { name: 'Career Values Clarifier', url: 'career-values-clarifier.html', icon: '🧭' },
+      { name: 'Skills Gap Identifier', url: 'skills-gap-identifier.html', icon: '📊' },
+      { name: 'Career Change Planner', url: 'career-change-planner.html', icon: '🔄' },
+      { name: 'LinkedIn Profile Optimiser', url: 'linkedin-profile-optimiser.html', icon: '🔗' },
+      { name: 'Professional Bio Builder', url: 'professional-bio-builder.html', icon: '✍️' },
+      { name: 'Reference Request Tool', url: 'reference-request-tool.html', icon: '📨' },
+      { name: 'Recommendation Letter Planner', url: 'recommendation-letter-planner.html', icon: '📜' },
+      { name: 'Performance Review Prep Tool', url: 'performance-review-prep-tool.html', icon: '📈' },
+      { name: 'Promotion Case Builder', url: 'promotion-case-builder.html', icon: '🎖️' },
+      { name: 'Leadership Style Checker', url: 'leadership-style-checker.html', icon: '👑' },
+      { name: 'Networking Event Planner', url: 'networking-event-planner.html', icon: '🥂' },
+      { name: 'Informational Interview Tool', url: 'informational-interview-tool.html', icon: '☕' },
+      { name: 'Mentor Finder Brief', url: 'mentor-finder-brief.html', icon: '🧑‍🏫' },
+      { name: 'Career Goal Setter', url: 'career-goal-setter.html', icon: '🎯' },
+      { name: 'Five Year Plan Builder', url: 'five-year-plan-builder.html', icon: '🗺️' },
+      { name: 'Professional Development Tracker', url: 'professional-development-tracker.html', icon: '📚' },
+      { name: 'Conference Preparation Tool', url: 'conference-preparation-tool.html', icon: '🎫' },
+      { name: 'Speaking Opportunity Finder', url: 'speaking-opportunity-finder.html', icon: '🎤' },
+      { name: 'Article Writing Planner', url: 'article-writing-planner.html', icon: '📰' },
+      { name: 'Thought Leadership Builder', url: 'thought-leadership-builder.html', icon: '💡' },
+      { name: 'Personal Brand Audit', url: 'personal-brand-audit.html', icon: '🔍' },
+      { name: 'Online Presence Checker', url: 'online-presence-checker.html', icon: '🌐' },
+      { name: 'Portfolio Builder Brief', url: 'portfolio-builder-brief.html', icon: '🗂️' },
+      { name: 'Case Study Creator', url: 'case-study-creator.html', icon: '📑' },
+      { name: 'Work Boundary Setter', url: 'work-boundary-setter.html', icon: '🚧' },
+      { name: 'Burnout Prevention Checker', url: 'burnout-prevention-checker.html', icon: '🔋' },
+      { name: 'Work Style Identifier', url: 'work-style-identifier.html', icon: '🧩' },
+      { name: 'Team Communication Tool', url: 'team-communication-tool.html', icon: '💬' },
+      { name: 'Meeting Effectiveness Checker', url: 'meeting-effectiveness-checker.html', icon: '✅' },
+      { name: 'Email Productivity Tool', url: 'email-productivity-tool.html', icon: '📧' },
+      { name: 'Remote Work Setup Checker', url: 'remote-work-setup-checker.html', icon: '🏡' },
+      { name: 'Hybrid Work Planner', url: 'hybrid-work-planner.html', icon: '🔀' },
+      { name: 'Workplace Conflict Tool', url: 'workplace-conflict-tool.html', icon: '⚖️' },
+      { name: 'Difficult Manager Planner', url: 'difficult-manager-planner.html', icon: '🧗' },
+      { name: 'Toxic Workplace Identifier', url: 'toxic-workplace-identifier.html', icon: '🚩' },
+      { name: 'Resignation Letter Builder', url: 'resignation-letter-builder.html', icon: '✉️' },
+      { name: 'Exit Interview Prep Tool', url: 'exit-interview-prep-tool.html', icon: '🚪' },
+      { name: 'Career Break Planner', url: 'career-break-planner.html', icon: '⏸️' },
+      { name: 'Return To Work Checklist', url: 'return-to-work-checklist.html', icon: '🔙' },
+      { name: 'Freelance Transition Planner', url: 'freelance-transition-planner.html', icon: '🦅' },
+      { name: 'Entrepreneurship Readiness Checker', url: 'entrepreneurship-readiness-checker.html', icon: '🚀' },
+      { name: 'Side Hustle To Business Planner', url: 'side-hustle-to-business-planner.html', icon: '📦' },
+      { name: 'Retirement Readiness Tool', url: 'retirement-readiness-tool.html', icon: '🏖️' },
+      { name: 'Legacy Career Builder', url: 'legacy-career-builder.html', icon: '🏛️' },
+    ]
+  },
+  {
+    id: 'Coaching & Service Providers',
+    icon: '🎯',
+    desc: '50 tools for coaches, consultants and service providers to sign clients, deliver, scale and lead',
+    apps: [
+      { name: 'Discovery Call Script Builder', url: 'discovery-call-script-builder.html', icon: '📞' },
+      { name: 'Client Intake Form Builder', url: 'client-intake-form-builder.html', icon: '📋' },
+      { name: 'Coaching Package Pricing Tool', url: 'coaching-package-pricing-tool.html', icon: '💲' },
+      { name: 'Session Agenda Builder', url: 'session-agenda-builder.html', icon: '🗓️' },
+      { name: 'Client Progress Tracker', url: 'client-progress-tracker.html', icon: '📈' },
+      { name: 'Transformation Timeline Tool', url: 'transformation-timeline-tool.html', icon: '🛤️' },
+      { name: 'Coaching Programme Outline Builder', url: 'coaching-programme-outline-builder.html', icon: '🗂️' },
+      { name: 'Group Programme Planner', url: 'group-programme-planner.html', icon: '👥' },
+      { name: 'VIP Day Agenda Builder', url: 'vip-day-agenda-builder.html', icon: '⭐' },
+      { name: 'Retreat Planning Tool', url: 'retreat-planning-tool.html', icon: '🏞️' },
+      { name: 'Workshop Outline Builder', url: 'workshop-outline-builder.html', icon: '🎓' },
+      { name: 'Masterclass Script Planner', url: 'masterclass-script-planner.html', icon: '🎙️' },
+      { name: 'Signature Framework Builder', url: 'signature-framework-builder.html', icon: '🧩' },
+      { name: 'Methodology Namer', url: 'methodology-namer.html', icon: '✨' },
+      { name: 'Client Results Tracker', url: 'client-results-tracker.html', icon: '🏆' },
+      { name: 'Testimonial Collection Tool', url: 'testimonial-collection-tool.html', icon: '💬' },
+      { name: 'Case Study Builder', url: 'case-study-builder.html', icon: '📑' },
+      { name: 'Referral Programme Planner', url: 'referral-programme-planner.html', icon: '🤝' },
+      { name: 'Client Retention Tracker', url: 'client-retention-tracker.html', icon: '🔄' },
+      { name: 'Offboarding Checklist', url: 'offboarding-checklist.html', icon: '✅' },
+      { name: 'Waitlist Manager Tool', url: 'waitlist-manager-tool.html', icon: '📝' },
+      { name: 'Application Form Builder', url: 'application-form-builder.html', icon: '🗒️' },
+      { name: 'Client Fit Checker', url: 'client-fit-checker.html', icon: '🎯' },
+      { name: 'Boundary Setting Script', url: 'boundary-setting-script.html', icon: '🚧' },
+      { name: 'Difficult Client Planner', url: 'difficult-client-planner.html', icon: '🧭' },
+      { name: 'Scope Creep Identifier', url: 'scope-creep-identifier.html', icon: '📐' },
+      { name: 'Rate Increase Calculator', url: 'rate-increase-calculator.html', icon: '💰' },
+      { name: 'Package Upsell Planner', url: 'package-upsell-planner.html', icon: '⬆️' },
+      { name: 'Passive Income from Coaching Tool', url: 'passive-income-from-coaching-tool.html', icon: '💸' },
+      { name: 'Course from Coaching Builder', url: 'course-from-coaching-builder.html', icon: '📚' },
+      { name: 'Podcast from Expertise Planner', url: 'podcast-from-expertise-planner.html', icon: '🎧' },
+      { name: 'Book from Coaching Outline', url: 'book-from-coaching-outline.html', icon: '📖' },
+      { name: 'Speaking from Coaching Planner', url: 'speaking-from-coaching-planner.html', icon: '🎤' },
+      { name: 'Certification Programme Builder', url: 'certification-programme-builder.html', icon: '🏅' },
+      { name: 'Licensing Model Planner', url: 'licensing-model-planner.html', icon: '📜' },
+      { name: 'Affiliate Programme Designer', url: 'affiliate-programme-designer.html', icon: '🔗' },
+      { name: 'Joint Venture Planner', url: 'joint-venture-planner.html', icon: '🌉' },
+      { name: 'Co Creation Tool', url: 'co-creation-tool.html', icon: '🤲' },
+      { name: 'Brand Partnership Brief', url: 'brand-partnership-brief.html', icon: '🏢' },
+      { name: 'Media Appearance Prep Tool', url: 'media-appearance-prep-tool.html', icon: '📺' },
+      { name: 'PR Strategy Planner', url: 'pr-strategy-planner.html', icon: '📰' },
+      { name: 'Awards Application Builder', url: 'awards-application-builder.html', icon: '🏆' },
+      { name: 'Thought Leadership Roadmap', url: 'thought-leadership-roadmap.html', icon: '💡' },
+      { name: 'Industry Authority Tracker', url: 'industry-authority-tracker.html', icon: '📊' },
+      { name: 'Community Building Roadmap', url: 'community-building-blueprint.html', icon: '🌐' },
+      { name: 'Membership Design Tool', url: 'membership-design-tool.html', icon: '🎟️' },
+      { name: 'Subscription Model Planner', url: 'subscription-model-planner.html', icon: '🔁' },
+      { name: 'Coaching Business Audit', url: 'coaching-business-audit.html', icon: '🩺' },
+      { name: 'Six Figure Coaching Roadmap', url: 'six-figure-coaching-roadmap.html', icon: '🚀' },
+      { name: 'Seven Figure Coaching Blueprint', url: 'seven-figure-coaching-blueprint.html', icon: '👑' },
+    ]
+  },
+  {
+    id: 'Spirituality & Mindfulness',
+    icon: '🌿',
+    desc: '50 tools for meditation, ritual, reflection and a deeper inner life',
+    apps: [
+      { name: 'Daily Meditation Timer', url: 'daily-meditation-timer.html', icon: '⏳' },
+      { name: 'Breathwork Session Tool', url: 'breathwork-session-tool.html', icon: '🌬️' },
+      { name: 'Chakra Balance Checker', url: 'chakra-balance-checker.html', icon: '🌈' },
+      { name: 'Moon Phase Planner', url: 'moon-phase-planner.html', icon: '🌙' },
+      { name: 'Manifestation Journal Tool', url: 'manifestation-journal-tool.html', icon: '✨' },
+      { name: 'Law Of Attraction Tracker', url: 'law-of-attraction-tracker.html', icon: '🧲' },
+      { name: 'Vision Board Builder', url: 'vision-board-builder.html', icon: '🖼️' },
+      { name: 'Affirmation Daily Generator', url: 'affirmation-daily-generator.html', icon: '💫' },
+      { name: 'Gratitude Practice Tool', url: 'gratitude-practice-tool.html', icon: '🙏' },
+      { name: 'Prayer Journal Builder', url: 'prayer-journal-builder.html', icon: '📿' },
+      { name: 'Scripture Reflection Tool', url: 'scripture-reflection-tool.html', icon: '📖' },
+      { name: 'Spiritual Goal Setter', url: 'spiritual-goal-setter.html', icon: '🎯' },
+      { name: 'Soul Purpose Finder', url: 'soul-purpose-finder.html', icon: '🧭' },
+      { name: 'Intuition Development Planner', url: 'intuition-development-planner.html', icon: '🔮' },
+      { name: 'Energy Clearing Ritual Tool', url: 'energy-clearing-ritual-tool.html', icon: '🕯️' },
+      { name: 'Crystal Intention Setter', url: 'crystal-intention-setter.html', icon: '💎' },
+      { name: 'Tarot Card Journal', url: 'tarot-card-journal.html', icon: '🃏' },
+      { name: 'Oracle Card Reflection Tool', url: 'oracle-card-reflection-tool.html', icon: '🎴' },
+      { name: 'Dream Journal Prompt Tool', url: 'dream-journal-prompt-tool.html', icon: '💭' },
+      { name: 'Synchronicity Tracker', url: 'synchronicity-tracker.html', icon: '🔗' },
+      { name: 'Spiritual Community Planner', url: 'spiritual-community-planner.html', icon: '👥' },
+      { name: 'Retreat Preparation Checklist', url: 'retreat-preparation-checklist.html', icon: '🎒' },
+      { name: 'Pilgrimage Planning Tool', url: 'pilgrimage-planning-tool.html', icon: '🚶' },
+      { name: 'Sacred Space Designer', url: 'sacred-space-designer.html', icon: '🏛️' },
+      { name: 'Altar Building Guide', url: 'altar-building-guide.html', icon: '🕊️' },
+      { name: 'Ritual Design Tool', url: 'ritual-design-tool.html', icon: '🪔' },
+      { name: 'Seasonal Celebration Planner', url: 'seasonal-celebration-planner.html', icon: '🍂' },
+      { name: 'Solstice and Equinox Tracker', url: 'solstice-and-equinox-tracker.html', icon: '☀️' },
+      { name: 'Sabbath Practice Planner', url: 'sabbath-practice-planner.html', icon: '🌅' },
+      { name: 'Fasting and Prayer Tracker', url: 'fasting-and-prayer-tracker.html', icon: '🕊️' },
+      { name: 'Spiritual Reading Planner', url: 'spiritual-reading-planner.html', icon: '📚' },
+      { name: 'Contemplative Practice Builder', url: 'contemplative-practice-builder.html', icon: '🧘' },
+      { name: 'Lectio Divina Guide', url: 'lectio-divina-guide.html', icon: '📜' },
+      { name: 'Centering Prayer Timer', url: 'centering-prayer-timer.html', icon: '⏱️' },
+      { name: 'Labyrinth Walk Planner', url: 'labyrinth-walk-planner.html', icon: '🌀' },
+      { name: 'Nature Connection Practice', url: 'nature-connection-practice.html', icon: '🌳' },
+      { name: 'Plant Medicine Journal', url: 'plant-medicine-journal.html', icon: '🌿' },
+      { name: 'Somatic Practice Planner', url: 'somatic-practice-planner.html', icon: '🤲' },
+      { name: 'Shadow Work Journal', url: 'shadow-work-journal.html', icon: '🌑' },
+      { name: 'Inner Child Healing Tool', url: 'inner-child-healing-tool.html', icon: '💗' },
+      { name: 'Ancestral Healing Planner', url: 'ancestral-healing-planner.html', icon: '🌳' },
+      { name: 'Past Life Reflection Tool', url: 'past-life-reflection-tool.html', icon: '⏳' },
+      { name: 'Akashic Record Journal', url: 'akashic-record-journal.html', icon: '📔' },
+      { name: 'Higher Self Connection Tool', url: 'higher-self-connection-tool.html', icon: '👁️' },
+      { name: 'Spirit Guide Journal', url: 'spirit-guide-journal.html', icon: '👼' },
+      { name: 'Angel Number Tracker', url: 'angel-number-tracker.html', icon: '🔢' },
+      { name: 'Numerology Calculator', url: 'numerology-calculator.html', icon: '🔢' },
+      { name: 'Astrology Birth Chart Tool', url: 'astrology-birth-chart-tool.html', icon: '♈' },
+      { name: 'Human Design Summary Tool', url: 'human-design-summary-tool.html', icon: '🧬' },
+      { name: 'Spiritual Business Aligner', url: 'spiritual-business-aligner.html', icon: '🌟' },
+    ]
+  },
+  {
+    id: 'Kids & Parenting',
+    icon: '👨‍👩‍👧',
+    desc: '50 tools for parents — routines, learning, money, feelings, family fun and the school year',
+    apps: [
+      { name: 'Baby Milestone Tracker', url: 'baby-milestone-tracker.html', icon: '👶' },
+      { name: 'Toddler Routine Builder', url: 'toddler-routine-builder.html', icon: '🧸' },
+      { name: 'Kids Chore Chart Generator', url: 'kids-chore-chart-generator.html', icon: '📋' },
+      { name: 'Reward System Planner', url: 'reward-system-planner.html', icon: '⭐' },
+      { name: 'Homework Help Tool', url: 'homework-help-tool.html', icon: '📚' },
+      { name: 'Reading Log Tracker', url: 'reading-log-tracker.html', icon: '📖' },
+      { name: 'Kids Book Recommendation Tool', url: 'kids-book-recommendation-tool.html', icon: '📕' },
+      { name: 'After School Snack Planner', url: 'after-school-snack-planner.html', icon: '🍎' },
+      { name: 'Screen Time Manager', url: 'screen-time-manager.html', icon: '📱' },
+      { name: 'Bedtime Routine Builder', url: 'bedtime-routine-builder.html', icon: '🌙' },
+      { name: 'Morning Routine for Kids', url: 'morning-routine-for-kids.html', icon: '☀️' },
+      { name: 'Kids Activity Generator', url: 'kids-activity-generator.html', icon: '🎲' },
+      { name: 'Rainy Day Activity Planner', url: 'rainy-day-activity-planner.html', icon: '☔' },
+      { name: 'School Holiday Activity Tool', url: 'school-holiday-activity-tool.html', icon: '🏖️' },
+      { name: 'Birthday Party Planner', url: 'birthday-party-planner.html', icon: '🎂' },
+      { name: 'Kids Party Game Generator', url: 'kids-party-game-generator.html', icon: '🎉' },
+      { name: 'Sleepover Planning Tool', url: 'sleepover-planning-tool.html', icon: '🛏️' },
+      { name: 'Summer Bucket List Builder', url: 'summer-bucket-list-builder.html', icon: '🌞' },
+      { name: 'Family Road Trip Planner', url: 'family-road-trip-planner.html', icon: '🚗' },
+      { name: 'Kids Travel Activity Pack', url: 'kids-travel-activity-pack.html', icon: '🎒' },
+      { name: 'Allowance Tracker', url: 'allowance-tracker.html', icon: '💰' },
+      { name: 'Kids Money Lesson Planner', url: 'kids-money-lesson-planner.html', icon: '🪙' },
+      { name: 'Savings Jar Calculator', url: 'savings-jar-calculator.html', icon: '🏦' },
+      { name: 'Kids Business Idea Generator', url: 'kids-business-idea-generator.html', icon: '💡' },
+      { name: 'Lemonade Stand Planner', url: 'lemonade-stand-planner.html', icon: '🍋' },
+      { name: 'Kids Craft Supply Tracker', url: 'kids-craft-supply-tracker.html', icon: '✂️' },
+      { name: 'Art Project Planner', url: 'art-project-planner.html', icon: '🎨' },
+      { name: 'Science Experiment Generator', url: 'science-experiment-generator.html', icon: '🔬' },
+      { name: 'Kids Cooking Recipe Tool', url: 'kids-cooking-recipe-tool.html', icon: '🍳' },
+      { name: 'Baking with Kids Planner', url: 'baking-with-kids-planner.html', icon: '🧁' },
+      { name: 'Garden with Kids Tool', url: 'garden-with-kids-tool.html', icon: '🌱' },
+      { name: 'Nature Scavenger Hunt Builder', url: 'nature-scavenger-hunt-builder.html', icon: '🔍' },
+      { name: 'Kids Yoga Routine Tool', url: 'kids-yoga-routine-tool.html', icon: '🧘' },
+      { name: 'Dance Party Playlist Planner', url: 'dance-party-playlist-planner.html', icon: '🕺' },
+      { name: 'Kids Meditation Tool', url: 'kids-meditation-tool.html', icon: '🫧' },
+      { name: 'Emotion Identification Tool', url: 'emotion-identification-tool.html', icon: '😊' },
+      { name: 'Feelings Journal for Kids', url: 'feelings-journal-for-kids.html', icon: '💭' },
+      { name: 'Kindness Challenge Builder', url: 'kindness-challenge-builder.html', icon: '🤗' },
+      { name: 'Gratitude Practice for Kids', url: 'gratitude-practice-for-kids.html', icon: '🙏' },
+      { name: 'Affirmations for Children', url: 'affirmations-for-children.html', icon: '💫' },
+      { name: 'Back to School Checklist', url: 'back-to-school-checklist.html', icon: '🎒' },
+      { name: 'Teacher Gift Planner', url: 'teacher-gift-planner.html', icon: '🎁' },
+      { name: 'School Volunteer Tracker', url: 'school-volunteer-tracker.html', icon: '🙌' },
+      { name: 'PTA Meeting Agenda Tool', url: 'pta-meeting-agenda-tool.html', icon: '🗒️' },
+      { name: 'Homeschool Daily Planner', url: 'homeschool-daily-planner.html', icon: '🏠' },
+      { name: 'Unschooling Activity Log', url: 'unschooling-activity-log.html', icon: '🌿' },
+      { name: 'Special Needs Support Planner', url: 'special-needs-support-planner.html', icon: '💛' },
+      { name: 'Gifted Child Activity Builder', url: 'gifted-child-activity-builder.html', icon: '🚀' },
+      { name: 'Teen Goal Setter', url: 'teen-goal-setter.html', icon: '🎯' },
+      { name: 'College Preparation Planner', url: 'college-preparation-planner.html', icon: '🎓' },
+    ]
+  },
+  {
+    id: 'Creative Arts & Hobbies',
+    icon: '🎨',
+    desc: '50 tools for makers, writers, musicians, photographers, crafters and collectors',
+    apps: [
+      { name: 'Creative Project Planner', url: 'creative-project-planner.html', icon: '🎨' },
+      { name: 'Art Supply Inventory Tool', url: 'art-supply-inventory-tool.html', icon: '🖌️' },
+      { name: 'Drawing Practice Tracker', url: 'drawing-practice-tracker.html', icon: '✏️' },
+      { name: 'Painting Colour Palette Builder', url: 'painting-colour-palette-builder.html', icon: '🎨' },
+      { name: 'Photography Shot List Generator', url: 'photography-shot-list-generator.html', icon: '📸' },
+      { name: 'Photo Editing Workflow Tool', url: 'photo-editing-workflow-tool.html', icon: '🖼️' },
+      { name: 'Music Practice Tracker', url: 'music-practice-tracker.html', icon: '🎵' },
+      { name: 'Song Writing Prompt Generator', url: 'song-writing-prompt-generator.html', icon: '🎶' },
+      { name: 'Chord Progression Builder', url: 'chord-progression-builder.html', icon: '🎹' },
+      { name: 'Podcast Episode Planner', url: 'podcast-episode-planner.html', icon: '🎙️' },
+      { name: 'Book Writing Outline Tool', url: 'book-writing-outline-tool.html', icon: '📖' },
+      { name: 'Novel Chapter Planner', url: 'novel-chapter-planner.html', icon: '📚' },
+      { name: 'Character Development Tool', url: 'character-development-tool.html', icon: '🧑‍🎤' },
+      { name: 'Plot Hole Finder', url: 'plot-hole-finder.html', icon: '🔍' },
+      { name: 'Writing Habit Tracker', url: 'writing-habit-tracker.html', icon: '🖊️' },
+      { name: 'Poetry Prompt Generator', url: 'poetry-prompt-generator.html', icon: '🪶' },
+      { name: 'Journaling Theme Generator', url: 'journaling-theme-generator.html', icon: '📓' },
+      { name: 'Scrapbooking Layout Planner', url: 'scrapbooking-layout-planner.html', icon: '📔' },
+      { name: 'Knitting Project Tracker', url: 'knitting-project-tracker.html', icon: '🧶' },
+      { name: 'Sewing Pattern Organiser', url: 'sewing-pattern-organiser.html', icon: '🪡' },
+      { name: 'Quilting Design Planner', url: 'quilting-design-planner.html', icon: '🪡' },
+      { name: 'Embroidery Project Tool', url: 'embroidery-project-tool.html', icon: '🧵' },
+      { name: 'Jewellery Making Calculator', url: 'jewellery-making-calculator.html', icon: '💎' },
+      { name: 'Pottery Project Planner', url: 'pottery-project-planner.html', icon: '🏺' },
+      { name: 'Woodworking Project Tool', url: 'woodworking-project-tool.html', icon: '🪵' },
+      { name: 'DIY Home Project Planner', url: 'diy-home-project-planner.html', icon: '🔨' },
+      { name: 'Upcycling Idea Generator', url: 'upcycling-idea-generator.html', icon: '♻️' },
+      { name: 'Vintage Thrift Finder Tool', url: 'vintage-thrift-finder-tool.html', icon: '🛍️' },
+      { name: 'Collection Inventory Builder', url: 'collection-inventory-builder.html', icon: '🗃️' },
+      { name: 'Trading Card Organiser', url: 'trading-card-organiser.html', icon: '🃏' },
+      { name: 'Coin Collection Tracker', url: 'coin-collection-tracker.html', icon: '🪙' },
+      { name: 'Stamp Collection Planner', url: 'stamp-collection-planner.html', icon: '📮' },
+      { name: 'Book Collection Organiser', url: 'book-collection-organiser.html', icon: '📚' },
+      { name: 'Film Watchlist Tracker', url: 'film-watchlist-tracker.html', icon: '🎬' },
+      { name: 'TV Show Progress Tool', url: 'tv-show-progress-tool.html', icon: '📺' },
+      { name: 'Game Night Planner', url: 'game-night-planner.html', icon: '🎲' },
+      { name: 'Board Game Collection Tool', url: 'board-game-collection-tool.html', icon: '♟️' },
+      { name: 'Puzzle Tracker', url: 'puzzle-tracker.html', icon: '🧩' },
+      { name: 'Escape Room Planner', url: 'escape-room-planner.html', icon: '🔐' },
+      { name: 'Trivia Night Builder', url: 'trivia-night-builder.html', icon: '❓' },
+      { name: 'Creative Challenge Generator', url: 'creative-challenge-generator.html', icon: '⚡' },
+      { name: '30 Day Creative Sprint Tool', url: '30-day-creative-sprint-tool.html', icon: '🏃' },
+      { name: 'Artist Statement Builder', url: 'artist-statement-builder.html', icon: '🖋️' },
+      { name: 'Portfolio Curation Tool', url: 'portfolio-curation-tool.html', icon: '🗂️' },
+      { name: 'Gallery Submission Tracker', url: 'gallery-submission-tracker.html', icon: '🖼️' },
+      { name: 'Art Commission Calculator', url: 'art-commission-calculator.html', icon: '💰' },
+      { name: 'Creative Business Income Tool', url: 'creative-business-income-tool.html', icon: '📊' },
+      { name: 'Etsy Shop Planner', url: 'etsy-shop-planner.html', icon: '🛒' },
+      { name: 'Craft Fair Preparation Checklist', url: 'craft-fair-preparation-checklist.html', icon: '🎪' },
+      { name: 'Creative Side Hustle Roadmap', url: 'creative-side-hustle-roadmap.html', icon: '🌟' },
+    ]
+  }
+];
+
+// All 20 categories complete — no more coming soon
+const COMING_SOON = [];
+
+// ── STATE ──
+let currentCat = 'all';
+let currentSearch = '';
+
+// ── RENDER ──
+function renderContent() {
+  const content = document.getElementById('content');
+  const search = currentSearch.toLowerCase();
+  let html = '';
+  let totalVisible = 0;
+
+  if (currentCat === 'coming') {
+    // All 20 categories complete — show a celebration instead
+    html += `
+      <div class="more-coming" style="border-style:solid;border-color:var(--border);">
+        <h3>1000 / 1000 <span>apps live ✨</span></h3>
+        <p>The vault is complete. Every one of the 20 categories is fully built — 1000 mini web apps, ready to use and ready to sell.</p>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Vault progress</span><span style="color:var(--gold)">1000 / 1000 live</span></div>
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </div>`;
+
+    content.innerHTML = html;
+    document.getElementById('visibleCount').textContent = '1000';
+    setTimeout(() => {
+      const fill = document.getElementById('progressFill');
+      if (fill) fill.style.width = '100%';
+    }, 100);
+    return;
+  }
+
+  // Filter categories
+  const catsToShow = currentCat === 'all'
+    ? CATEGORIES
+    : CATEGORIES.filter(c => c.id === currentCat);
+
+  catsToShow.forEach(cat => {
+    const filtered = search
+      ? cat.apps.filter(a => a.name.toLowerCase().includes(search))
+      : cat.apps;
+
+    if (!filtered.length) return;
+    totalVisible += filtered.length;
+
+    html += `
+      <div class="category-section" id="cat-${cat.id.replace(/\s+/g,'-')}">
+        <div class="category-header">
+          <div class="cat-icon">${cat.icon}</div>
+          <div class="cat-info">
+            <div class="cat-name">${cat.id}</div>
+            <div class="cat-desc">${cat.desc}</div>
+          </div>
+          <div class="cat-count">${filtered.length} apps</div>
+        </div>
+        <div class="app-grid">
+          ${filtered.map(app => `
+            <a href="${app.url}" target="_blank" class="app-card">
+              <span class="app-card-icon">${app.icon}</span>
+              <div class="app-card-name">${app.name}</div>
+              <div class="app-card-open">
+                Open app
+                <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+      </div>`;
+  });
+
+  // Vault complete — show a celebration block when viewing all
+  if (currentCat === 'all' && !search) {
+    html += `
+      <div class="more-coming" style="border-style:solid;border-color:var(--border);">
+        <h3>1000 / 1000 <span>apps live ✨</span></h3>
+        <p>The complete vault — every category, every app, all yours forever. Browse, use and sell with full Master Resell Rights.</p>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Vault progress</span><span style="color:var(--gold)">1000 / 1000 live</span></div>
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </div>`;
+  }
+
+  if (!totalVisible && search) {
+    html = `
+      <div class="no-results">
+        <div class="no-results-icon">🔍</div>
+        <h3>No apps found</h3>
+        <p>No results for "<strong style="color:var(--text)">${currentSearch}</strong>"<br>Try a different search term.</p>
+      </div>`;
+  }
+
+  content.innerHTML = html;
+  document.getElementById('visibleCount').textContent = totalVisible || 1000;
+
+  setTimeout(() => {
+    const fill = document.getElementById('progressFill');
+    if (fill) fill.style.width = '100%';
+  }, 100);
+}
+
+function filterCat(cat, el) {
+  currentCat = cat;
+  currentSearch = '';
+  document.getElementById('searchInput').value = '';
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  renderContent();
+}
+
+function filterApps() {
+  currentSearch = document.getElementById('searchInput').value;
+  currentCat = 'all';
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  document.querySelector('.pill').classList.add('active');
+  renderContent();
+}
+
+// ── INIT ──
+renderContent();
+</script>
+</body>
+</html>
